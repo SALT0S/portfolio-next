@@ -16,15 +16,16 @@ export const DesktopBar = () => {
             <Link href="/">
               <a className="flex text-white">
                 <span className="bg-white py-1 px-2 text-xl font-bold text-black">
-                  A
+                  Jose
                 </span>
-                <p className="bg-[#C48F5A]  py-1 px-2 text-lg font-bold hover:bg-[#B27D48]">
-                  Alica Art
+                <p className="bg-black  py-1 px-2 text-lg font-bold">
+                  Sanchez S.
                 </p>
               </a>
             </Link>
+
             <div className="-mr-2 flex items-center md:hidden">
-              <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-100">
+              <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-900">
                 <span className="sr-only">Open main menu</span>
                 {/* <MenuAlt3Icon className="h-7 w-7" aria-hidden="true" /> */}
                 <p>menu</p>
@@ -32,22 +33,19 @@ export const DesktopBar = () => {
             </div>
           </div>
         </div>
-        <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
+        <div className="hidden md:block md:space-x-8">
           {MenuNav.map((menu) => (
             <ActiveLink
               key={menu.name}
               text={menu.name}
               href={menu.href}
-              className="font-medium text-gray-200 hover:text-gray-400"
+              className="font-medium text-gray-900 hover:text-gray-400"
             />
           ))}
         </div>
-        <a
-          href="#"
-          className="hidden font-medium text-white hover:text-indigo-500 md:block"
-        >
-          Log in
-        </a>
+        <p className="hidden font-medium text-black hover:text-indigo-500 md:block">
+          Dark theme
+        </p>
       </nav>
     </div>
   );

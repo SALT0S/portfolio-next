@@ -23,7 +23,7 @@ export const Layout: React.FC<Props> = ({
 
       <main>{children}</main>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

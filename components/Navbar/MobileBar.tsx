@@ -21,12 +21,12 @@ export const MobileBar = () => {
       >
         <div className="overflow-hidden rounded-lg bg-gray-800 shadow-md ring-1 ring-black ring-opacity-5">
           <div className="flex items-center justify-between px-5 pt-4">
-            <div className="flex text-white  ">
+            <div className="flex text-white">
               <span className="bg-white py-1 px-2 text-xl font-bold text-black">
-                A
+                Jose
               </span>
-              <p className="bg-[#C48F5A] py-1 px-2 text-lg font-bold hover:bg-[#B27D48]">
-                Alica Art
+              <p className="bg-black  py-1 px-2 text-lg font-bold">
+                Sanchez S.
               </p>
             </div>
             <div className="-mr-2">
@@ -47,12 +47,9 @@ export const MobileBar = () => {
               />
             ))}
           </div>
-          <a
-            href="#"
-            className="block w-full bg-slate-600 px-5 py-3 text-center font-medium text-white hover:bg-slate-700"
-          >
-            Log in
-          </a>
+          <p className="block w-full bg-slate-600 px-5 py-3 text-center font-medium text-white hover:bg-slate-700">
+            Dark theme
+          </p>
         </div>
       </Popover.Panel>
     </Transition>

@@ -1,8 +1,8 @@
 const MenuNav = [
   { name: "Home", href: "/" },
-  { name: "Artists", href: "/artists" },
-  { name: "Categories", href: "/categories" },
-  { name: "About us", href: "/about" },
+  { name: "Blog", href: "/blog" },
+  { name: "About", href: "/about-me" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default MenuNav;

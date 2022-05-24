@@ -9,7 +9,7 @@ type Props = {
 
 const ActiveStyle = {
   fontWeight: "bold",
-  color: "#ffff",
+  color: "#000",
 };
 
 export const ActiveLink: React.FC<Props> = ({ text, href, className }) => {
