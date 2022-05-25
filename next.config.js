@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self';
+  script-src 'self';  
   child-src example.com;
   style-src 'self' example.com;
   font-src 'self';  
@@ -31,15 +31,15 @@ const nextConfig = {
             key: "Referrer-Policy",
             value: "origin-when-cross-origin",
           },
-          {
+          /* {
             key: "Permissions-Policy",
             value:
               "camera=(); battery=(self); geolocation=(); microphone=('https://somewhere.com')",
-          },
-          {
+          }, */
+          /* {
             key: "Content-Security-Policy",
             value: ContentSecurityPolicy.replace(/\s{2,}/g, " ").trim(),
-          },
+          }, */
         ],
       },
     ];
