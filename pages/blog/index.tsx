@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import { Layout } from "../../components/Layout/Layout";
-import { Blog } from "../../components/UI";
+import { Blog, Newsletter } from "../../components/UI";
 
 const BlogPage: NextPage = () => {
   return (
     <Layout>
       <Blog />
+      <Newsletter />
     </Layout>
   );
 };
