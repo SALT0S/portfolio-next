@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
 import { Layout } from "../../components/Layout/Layout";
-import styles from "../../styles/Home.module.css";
+import { Blog } from "../../components/UI";
 
 const BlogPage: NextPage = () => {
   return (
     <Layout>
-      <h1 className={styles.title}>Blog page</h1>
+      <Blog />
     </Layout>
   );
 };
