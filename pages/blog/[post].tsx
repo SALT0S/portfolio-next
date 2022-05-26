@@ -7,7 +7,7 @@ const PostPage = () => {
   return (
     <Layout>
       <div className="container mx-auto my-10 grid max-w-7xl px-4 sm:px-6 md:grid-cols-2 lg:px-8">
-        <div className="relative h-52 md:h-[540px] ">
+        <div className="relative h-96 md:h-[540px] ">
           <Image
             src={Tuco}
             layout="fill"
@@ -16,24 +16,26 @@ const PostPage = () => {
           />
         </div>
         <div>
-          <div className="rounded-b-2xl bg-gray-200 py-[15%] px-[5%] md:rounded-r-2xl">
+          <div className="rounded-b-2xl bg-gray-200 py-[15%] px-[5%] md:rounded-b-none md:rounded-r-2xl">
             <h1 className="text-4xl font-bold leading-normal">
               USE YOUR DESIRES AS A MUSE
             </h1>
             <p className="mt-5">4 min read</p>
           </div>
-          <div className="relative px-[5%]">
-            <div className="absolute bottom-1/2 h-28 w-28 rounded-full border-8 border-white	">
-              <Image
-                src={Profile}
-                alt="Jose Sanchez Saltos"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="top"
-                className="rounded-full"
-              />
+          <div className="px-[5%]">
+            <div className="relative">
+              <div className="absolute bottom-1/2 h-28 w-28 rounded-full border-8 border-white	">
+                <Image
+                  src={Profile}
+                  alt="Jose Sanchez Saltos"
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="top"
+                  className="rounded-full"
+                />
+              </div>
             </div>
-            <p className="pt-20 text-lg">Jose Sanchez S. - April 14th, 2022</p>
+            <p className="mt-16 text-lg">Jose Sanchez S. - April 14th, 2022</p>
           </div>
         </div>
       </div>
