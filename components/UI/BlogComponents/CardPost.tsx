@@ -11,6 +11,7 @@ export const CardPost = () => {
             alt="foto del tuco"
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
           />
         </div>
 
@@ -33,6 +34,7 @@ export const CardPost = () => {
             alt="foto del tuco"
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
           />
         </div>
 
@@ -55,6 +57,7 @@ export const CardPost = () => {
             alt="foto del tuco"
             layout="fill"
             objectFit="cover"
+            placeholder="blur"
           />
         </div>
 

@@ -4,7 +4,13 @@ export const CarouselPost = () => {
   return (
     <div className="h-full w-full bg-gray-200 dark:bg-zinc-900 md:flex md:flex-row-reverse">
       <div className="relative h-52 md:h-[540px] md:w-2/3">
-        <Image src={Tuco} layout="fill" alt="Foto del tuco" objectFit="cover" />
+        <Image
+          src={Tuco}
+          layout="fill"
+          alt="Foto del tuco"
+          objectFit="cover"
+          placeholder="blur"
+        />
       </div>
 
       <div className="self-center px-8 text-center md:w-1/3">
