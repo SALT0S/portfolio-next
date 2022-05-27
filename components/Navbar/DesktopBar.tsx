@@ -39,7 +39,7 @@ export const DesktopBar = () => {
               key={menu.name}
               text={menu.name}
               href={menu.href}
-              className="font-medium text-gray-900 hover:text-gray-400"
+              className="font-medium text-gray-900 hover:text-gray-400 dark:text-white"
             />
           ))}
         </div>

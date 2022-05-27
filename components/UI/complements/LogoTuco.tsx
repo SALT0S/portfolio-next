@@ -6,6 +6,7 @@ const LogoTuco = () => {
         data-name="Capa 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 2105.96 3188.87"
+        className="dark:fill-white"
       >
         <g id="Capa_3" className="fill-yellow-500" data-name="Capa 3">
           <path
