@@ -3,7 +3,7 @@ import Astronaut from "/public/static/gif/Astronaut.gif";
 export const AboutSection = () => {
   return (
     <section>
-      <div className="bg-black text-center text-white">
+      <div className="bg-dark bg-black text-center text-white dark:bg-white dark:text-black">
         <div className="container mx-auto max-w-[1540px] px-4 sm:px-6 md:grid md:grid-cols-5 lg:px-8">
           <div className="md:col-span-3">
             <Image src={Astronaut} layout="responsive" alt="Astronaut gif" />
@@ -20,7 +20,11 @@ export const AboutSection = () => {
           </div>
         </div>
       </div>
-      <svg viewBox="0 0 1440 230" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        viewBox="0 0 1440 230"
+        xmlns="http://www.w3.org/2000/svg"
+        className="dark:fill-white"
+      >
         <path d="M0 160H18.5C36.9 160 74 160 111 160C147.7 160 185 160 222 149.3C258.5 139 295 117 332 128C369.2 139 406 181 443 176C480 171 517 117 554 90.7C590.8 64 628 64 665 85.3C701.5 107 738 149 775 165.3C812.3 181 849 171 886 154.7C923.1 139 960 117 997 122.7C1033.8 128 1071 160 1108 176C1144.6 192 1182 192 1218 197.3C1255.4 203 1292 213 1329 208C1366.2 203 1403 181 1422 170.7L1440 160V0H1421.5C1403.1 0 1366 0 1329 0C1292.3 0 1255 0 1218 0C1181.5 0 1145 0 1108 0C1070.8 0 1034 0 997 0C960 0 923 0 886 0C849.2 0 812 0 775 0C738.5 0 702 0 665 0C627.7 0 591 0 554 0C516.9 0 480 0 443 0C406.2 0 369 0 332 0C295.4 0 258 0 222 0C184.6 0 148 0 111 0C73.8 0 37 0 18 0H0V160Z" />
       </svg>
     </section>
