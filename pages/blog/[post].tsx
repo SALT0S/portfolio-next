@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Layout } from "../../components/Layout";
 import { Newsletter } from "../../components/UI";
-import Tuco from "/public/img/FotoTuco.jpg";
-import Profile from "/public/img/profile.jpg";
+import Tuco from "/public/static/img/FotoTuco.jpg";
+import Profile from "/public/static/img/profile.jpg";
 const PostPage = () => {
   return (
     <Layout>
@@ -13,6 +13,7 @@ const PostPage = () => {
             layout="fill"
             alt="Foto del tuco"
             objectFit="cover"
+            placeholder="blur"
           />
         </div>
         <div>
@@ -32,6 +33,7 @@ const PostPage = () => {
                   objectFit="cover"
                   objectPosition="top"
                   className="rounded-full"
+                  placeholder="blur"
                 />
               </div>
             </div>

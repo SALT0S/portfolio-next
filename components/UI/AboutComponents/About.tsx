@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Profile from "/public/img/profile.jpg";
+import Profile from "/public/static/img/profile.jpg";
 
 export const About = () => {
   return (

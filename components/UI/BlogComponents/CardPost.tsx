@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Tuco from "/public/img/FotoTuco.jpg";
+import Tuco from "/public/static/img/FotoTuco.jpg";
 
 export const CardPost = () => {
   return (

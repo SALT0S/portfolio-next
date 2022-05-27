@@ -1,7 +1,9 @@
+import { CardPost } from "../BlogComponents/CardPost";
 export const BlogSection = () => {
   return (
-    <div>
-      <h2>BlogSection</h2>
-    </div>
+    <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 className="text-center text-5xl">Blog about personal opinions</h2>
+      <CardPost />
+    </section>
   );
 };

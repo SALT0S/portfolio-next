@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Tuco from "/public/img/FotoTuco.jpg";
+import Tuco from "/public/static/img/FotoTuco.jpg";
 export const CarouselPost = () => {
   return (
     <div className="h-full w-full bg-gray-200 md:flex md:flex-row-reverse">
