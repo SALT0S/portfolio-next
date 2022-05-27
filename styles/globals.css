@@ -15,6 +15,9 @@
   p {
     @apply text-zinc-900 dark:text-zinc-300;
   }
+  .active {
+    @apply font-bold text-black dark:text-white;
+  }
 }
 
 html,

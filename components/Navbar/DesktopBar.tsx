@@ -1,10 +1,20 @@
+import { useState } from "react";
+import useTheme from "next-theme";
 import Link from "next/link";
-import { Popover } from "@headlessui/react";
+
+import { Popover, Switch } from "@headlessui/react";
 /*import { MenuAlt3Icon } from "@heroicons/react/outline"; */
+
 import { ActiveLink } from "./ActiveLink";
 import MenuNav from "../constants/MenuNav";
 
 export const DesktopBar = () => {
+  const { theme, setTheme } = useTheme();
+  const [themeState, setThemeState] = useState(false);
+
+  const handleTheme = () => {
+    setThemeState(theme === "light" ? !themeState : themeState);
+  };
   return (
     <div className="relative h-auto w-auto">
       <nav
@@ -33,19 +43,40 @@ export const DesktopBar = () => {
             </div>
           </div>
         </div>
-        <div className="hidden md:block md:space-x-8">
+
+        <ul className="hidden md:flex md:space-x-8">
           {MenuNav.map((menu) => (
             <ActiveLink
               key={menu.name}
               text={menu.name}
               href={menu.href}
-              className="font-medium text-gray-900 hover:text-gray-400 dark:text-white"
+              className="cursor-pointer font-medium text-gray-900 hover:text-gray-400 dark:text-white"
             />
           ))}
+        </ul>
+
+        <div className="hidden md:flex">
+          <Switch
+            checked={themeState}
+            onChange={handleTheme}
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className={`${
+              theme === "dark" ? "bg-white" : "bg-zinc-900"
+            } relative inline-flex h-6 w-11 items-center rounded-full`}
+          >
+            <span className="sr-only">
+              Enable {theme === "light" ? "Light Mode" : "Dark Mode"}
+            </span>
+            <span
+              className={`${
+                theme === "dark" ? "translate-x-6" : "translate-x-1"
+              } inline-block h-4 w-4 transform rounded-full bg-white dark:bg-black`}
+            />
+          </Switch>
+          <p className="ml-2">
+            {theme === "light" ? "Light Mode" : "Dark Mode"}
+          </p>
         </div>
-        <p className="hidden font-medium text-black hover:text-indigo-500 md:block">
-          Dark theme
-        </p>
       </nav>
     </div>
   );

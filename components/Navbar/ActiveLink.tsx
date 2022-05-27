@@ -7,20 +7,13 @@ type Props = {
   className: string;
 };
 
-const ActiveStyle = {
-  fontWeight: "bold",
-};
-
 export const ActiveLink: React.FC<Props> = ({ text, href, className }) => {
   const router = useRouter();
   return (
     <Link href={href} passHref>
-      <a
-        style={router.pathname === href ? ActiveStyle : undefined}
-        className={className}
-      >
-        {text}
-      </a>
+      <li className={className}>
+        <a className={router.pathname === href ? "active" : ""}>{text}</a>
+      </li>
     </Link>
   );
 };
