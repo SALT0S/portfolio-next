@@ -18,7 +18,7 @@ export const DesktopBar = () => {
                 <span className="bg-white py-1 px-2 text-xl font-bold text-black">
                   Jose
                 </span>
-                <p className="bg-black  py-1 px-2 text-lg font-bold">
+                <p className="bg-black py-1 px-2 text-lg font-bold text-white dark:text-white">
                   Sanchez S.
                 </p>
               </a>

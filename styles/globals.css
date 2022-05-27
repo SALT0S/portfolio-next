@@ -6,6 +6,15 @@
   body {
     @apply bg-white text-gray-900 dark:bg-black dark:text-white;
   }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-black dark:text-white;
+  }
+  p {
+    @apply text-zinc-900 dark:text-zinc-300;
+  }
 }
 
 html,

@@ -17,8 +17,12 @@ const HomePage: NextPage = () => {
       {/* container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8 */}
       <div>
         The current theme is: {theme} <br />
-        <button onClick={() => setTheme("light")}>Light Mode</button> <br />
-        <button onClick={() => setTheme("dark")}>Dark Mode</button>
+        <button
+          className="bg-black text-white dark:bg-white dark:text-black"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        >
+          Mode to {theme === "light" ? "Dark" : "Light"}
+        </button>
       </div>
       <HeaderSection />
       <ProjectSection />

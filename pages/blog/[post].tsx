@@ -17,7 +17,7 @@ const PostPage = () => {
           />
         </div>
         <div>
-          <div className="rounded-b-2xl bg-gray-200 py-[15%] px-[5%] md:rounded-b-none md:rounded-r-2xl">
+          <div className="rounded-b-2xl bg-gray-200 py-[15%] px-[5%] dark:bg-zinc-900 md:rounded-b-none md:rounded-r-2xl">
             <h1 className="text-4xl font-bold leading-normal">
               USE YOUR DESIRES AS A MUSE
             </h1>
@@ -25,7 +25,7 @@ const PostPage = () => {
           </div>
           <div className="px-[5%]">
             <div className="relative">
-              <div className="absolute bottom-1/2 h-28 w-28 rounded-full border-8 border-white	">
+              <div className="absolute bottom-1/2 h-28 w-28 rounded-full border-8 border-white dark:border-black">
                 <Image
                   src={Profile}
                   alt="Jose Sanchez Saltos"
