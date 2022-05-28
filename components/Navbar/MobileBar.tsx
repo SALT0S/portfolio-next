@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import useTheme from "next-theme";
 
 import { Popover, Transition, Switch } from "@headlessui/react";
-/* import { XIcon } from "@heroicons/react/outline";  */
+import { HiX } from "react-icons/hi";
 
 import { ActiveLink } from "./ActiveLink";
 import MenuNav from "../constants/MenuNav";
@@ -45,8 +45,7 @@ export const MobileBar = () => {
             <div className="-mr-2">
               <Popover.Button className="inline-flex items-center justify-center p-2">
                 <span className="sr-only">Close main menu</span>
-                {/* <XIcon className="h-7 w-7" aria-hidden="true" /> */}
-                <p>close</p>
+                <HiX className="h-7 w-7" aria-hidden="true" />
               </Popover.Button>
             </div>
           </div>

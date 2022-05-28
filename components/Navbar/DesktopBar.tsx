@@ -3,7 +3,7 @@ import useTheme from "next-theme";
 import Link from "next/link";
 
 import { Popover, Switch } from "@headlessui/react";
-/*import { MenuAlt3Icon } from "@heroicons/react/outline"; */
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 import { ActiveLink } from "./ActiveLink";
 import MenuNav from "../constants/MenuNav";
@@ -35,10 +35,9 @@ export const DesktopBar = () => {
             </Link>
 
             <div className="-mr-2 flex items-center md:hidden">
-              <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-900">
+              <Popover.Button className="inline-flex items-center justify-center p-2">
                 <span className="sr-only">Open main menu</span>
-                {/* <MenuAlt3Icon className="h-7 w-7" aria-hidden="true" /> */}
-                <p>menu</p>
+                <HiOutlineMenuAlt3 className="h-7 w-7" aria-hidden="true" />
               </Popover.Button>
             </div>
           </div>
