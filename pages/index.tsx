@@ -13,15 +13,6 @@ const HomePage: NextPage = () => {
   return (
     <Layout>
       {/* container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8 */}
-      {/* <div>
-         <br />
-        <button
-          className="bg-black text-white dark:bg-white dark:text-black"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        >
-          Mode to {theme === "light" ? "Dark" : "Light"}
-        </button>
-      </div> */}
       <HeaderSection />
       <ProjectSection />
       <SkillSection />

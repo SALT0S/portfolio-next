@@ -4,7 +4,7 @@ import Tuco from "/public/static/img/FotoTuco.jpg";
 export const CardHome = () => {
   return (
     <div className="mt-10 grid gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-      <div className=" mb-8 w-full">
+      <div className="w-full">
         <div className="relative h-80 w-full">
           <Image
             src={Tuco}
@@ -23,7 +23,7 @@ export const CardHome = () => {
         </article>
       </div>
 
-      <div className="mb-8 w-full ">
+      <div className="w-full ">
         <div className="relative h-80 w-full">
           <Image
             src={Tuco}
@@ -42,7 +42,7 @@ export const CardHome = () => {
         </article>
       </div>
 
-      <div className="mb-8 w-full ">
+      <div className="w-full ">
         <div className="relative h-80 w-full">
           <Image
             src={Tuco}

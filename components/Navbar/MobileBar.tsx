@@ -56,7 +56,7 @@ export const MobileBar = () => {
                 key={menu.name}
                 href={menu.href}
                 text={menu.name}
-                className="block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-zinc-300 dark:hover:bg-zinc-900"
+                className="block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-black dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:text-white"
               />
             ))}
           </ul>
