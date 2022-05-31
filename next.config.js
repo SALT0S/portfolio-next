@@ -12,6 +12,10 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    loader: "default",
+    domains: ["res.cloudinary.com"],
+  },
   poweredByHeader: false,
   async headers() {
     return [
