@@ -1,5 +1,5 @@
 import { IProjects } from "../../../interfaces";
-import { ProjectCard } from "../Project/ProjectCard";
+import { ProjectCard } from "../Project";
 
 interface Props {
   projects: IProjects;
