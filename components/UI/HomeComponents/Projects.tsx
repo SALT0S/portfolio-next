@@ -20,7 +20,7 @@ export const ProjectSection = () => {
               layout="responsive"
               objectFit="cover"
               placeholder="blur"
-              className="cursor-pointer brightness-50"
+              className="cursor-pointer brightness-50 hover:brightness-75"
             />
             <h3 className="absolute top-10 w-full px-5 text-3xl font-semibold text-white">
               Alica Art project a virtual gallery
@@ -54,9 +54,9 @@ export const ProjectSection = () => {
               layout="responsive"
               objectFit="cover"
               placeholder="blur"
-              className="cursor-pointer brightness-50"
+              className="cursor-pointer brightness-50 hover:brightness-75"
             />
-            <h3 className="absolute top-10 w-full px-5 text-3xl font-semibold text-white">
+            <h3 className="absolute top-10 w-full px-5 text-3xl font-semibold  text-white">
               Alica Art project a virtual gallery
             </h3>
 
@@ -87,7 +87,7 @@ export const ProjectSection = () => {
               layout="responsive"
               objectFit="cover"
               placeholder="blur"
-              className="cursor-pointer brightness-50"
+              className="cursor-pointer brightness-50 hover:brightness-75"
             />
             <h3 className="absolute top-10 w-full px-5 text-3xl font-semibold text-white">
               Alica Art project a virtual gallery

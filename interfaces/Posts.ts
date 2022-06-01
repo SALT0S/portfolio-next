@@ -10,6 +10,7 @@ export interface DatumAttributes {
   title: string;
   slug: string;
   date: string;
+  description: string;
   image: Image;
 }
 

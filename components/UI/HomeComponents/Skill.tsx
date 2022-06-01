@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ISkill } from "../../../interfaces";
 
@@ -11,12 +10,6 @@ interface SkillsProps {
   skills: ISkill;
 }
 export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
-  const [swiper, setSwiper] = useState(false);
-
-  useEffect(() => {
-    setSwiper(true);
-  }, []);
-
   return (
     <section>
       <svg
@@ -40,7 +33,6 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
         </div>
 
         <Swiper
-          loop={true}
           grabCursor={true}
           autoplay={{
             delay: 2000,
@@ -62,32 +54,23 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
           }}
           modules={[Autoplay]}
         >
-          {swiper ? (
-            skills.data.attributes.stack_skill.map((skill) => (
-              <SwiperSlide key={skill.id}>
-                <div className="mx-auto h-24 w-24">
-                  <Image
-                    src={skill.image.data.attributes.url}
-                    alt={skill.title}
-                    blurDataURL={skill.image.data.attributes.url}
-                    layout="responsive"
-                    width={"100%"}
-                    height={"100%"}
-                    objectFit="cover"
-                    placeholder="blur"
-                    className="mx-auto items-center rounded-full"
-                  />
-                </div>
-                <p className="pt-2 text-center text-lg text-white">
-                  {skill.title}
-                </p>
-              </SwiperSlide>
-            ))
-          ) : (
-            <p className="pt-2 text-center text-lg text-white">
-              Loading Skils...
-            </p>
-          )}
+          {skills.data.attributes.stack_skill.map((skill) => (
+            <SwiperSlide key={skill.id} className="text-center">
+              <Image
+                src={skill.image.data.attributes.url}
+                alt={skill.title}
+                layout="intrinsic"
+                width={100}
+                height={100}
+                loading="lazy"
+                objectFit="cover"
+                className="mx-auto rounded-full"
+              />
+              <p className="pt-2 text-center text-lg text-white">
+                {skill.title}
+              </p>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

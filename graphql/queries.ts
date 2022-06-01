@@ -8,6 +8,29 @@ export const GET_ALL_FEATURED_POSTS = gql`
           title
           slug
           date
+          description
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ALL_UNFEATURED_POSTS = gql`
+  query getPosts {
+    posts(filters: { featured: { eq: false } }) {
+      data {
+        attributes {
+          title
+          slug
+          date
+          description
           image {
             data {
               attributes {
@@ -42,26 +65,3 @@ export const GET_ALL_SKILLS = gql`
     }
   }
 `;
-
-/* export const GET_POST = gql`
-  query getPost($where: JSON!) {
-    posts(where: $where) {
-      id
-      slug
-      title
-      tags
-      description
-      image {
-        url
-      }
-      content
-      author {
-        username
-        picture {
-          url
-        }
-      }
-      published_at
-    }
-  }
-`;  */

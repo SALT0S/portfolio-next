@@ -13,14 +13,14 @@ export interface PurpleAttributes {
 export interface StackSkill {
   id: string;
   title: string;
-  image: Image;
+  image: ImageSkill;
 }
 
-export interface Image {
-  data: ImageData;
+export interface ImageSkill {
+  data: ImageSkillData;
 }
 
-export interface ImageData {
+export interface ImageSkillData {
   attributes: FluffyAttributes;
 }
 

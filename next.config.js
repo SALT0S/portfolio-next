@@ -15,6 +15,7 @@ const nextConfig = {
   images: {
     loader: "default",
     domains: ["res.cloudinary.com"],
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   poweredByHeader: false,
   async headers() {
