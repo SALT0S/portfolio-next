@@ -11,15 +11,18 @@ export const ProjectCard: React.FC<Props> = ({ projects }) => {
   return (
     <>
       {projects.data.map((project, index) => (
-        <div key={project.attributes.slug} className={`md:mt-${index}0 mt-0`}>
+        <div
+          key={project.attributes.slug}
+          className={`projectCard mt-${index}0 `}
+        >
           <div className="relative">
             <Image
               src={project.attributes.image.data.attributes.url}
               alt={project.attributes.title}
               blurDataURL={project.attributes.image.data.attributes.url}
               layout="responsive"
-              width={"100%"}
-              height={150}
+              width={project.attributes.image.data.attributes.width}
+              height={project.attributes.image.data.attributes.height}
               objectFit="cover"
               placeholder="blur"
               className="cursor-pointer brightness-50 hover:brightness-75"

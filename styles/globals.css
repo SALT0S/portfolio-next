@@ -18,6 +18,13 @@
   .active {
     @apply font-bold text-black dark:text-white;
   }
+  .text-about blockquote p {
+    @apply text-2xl text-black dark:text-white;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+  }
 }
 
 html,
@@ -36,4 +43,22 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .projectCard {
+    margin-top: 0;
+  }
+}
+
+.text-post p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.text-blockquote blockquote {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
 }

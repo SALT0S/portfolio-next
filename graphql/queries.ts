@@ -37,6 +37,8 @@ export const GET_ALL_PROJECTS = gql`
             data {
               attributes {
                 url
+                width
+                height
               }
             }
           }
@@ -102,6 +104,31 @@ export const GET_ALL_SKILLS = gql`
               data {
                 attributes {
                   url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_ALL_ABOUT = gql`
+  query getAbout {
+    about {
+      data {
+        attributes {
+          description
+          content
+          author {
+            author_title
+            image {
+              data {
+                attributes {
+                  url
+                  width
+                  height
                 }
               }
             }
