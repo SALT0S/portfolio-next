@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Layout } from "../../components/Layout";
-import { Newsletter } from "../../components/UI";
+import { Newsletter } from "../../components/UI/Blog";
 import Tuco from "/public/static/img/FotoTuco.jpg";
 import Profile from "/public/static/img/profile.jpg";
 const PostPage = () => {

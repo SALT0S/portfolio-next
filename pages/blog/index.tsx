@@ -45,8 +45,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      postsFeatured: postsFeatured,
-      posts: posts,
+      postsFeatured,
+      posts,
     },
   };
 };

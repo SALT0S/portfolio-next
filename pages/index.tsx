@@ -29,9 +29,6 @@ const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
   return (
     <Layout>
       {/* container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8 */}
-      {/* TODO: Arreglar la conexion a strapi fetchear con graphql y filtrar todo,
-      arreglar tambien el mapeo de la seccion skills, no sirve hehe
-      */}
       <HeaderSection />
       <ProjectSection projects={projects} />
       <SkillSection skills={skills} />

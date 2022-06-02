@@ -19,12 +19,10 @@ export const ProjectCard: React.FC<Props> = ({ projects }) => {
             <Image
               src={project.attributes.image.data.attributes.url}
               alt={project.attributes.title}
-              blurDataURL={project.attributes.image.data.attributes.url}
-              layout="responsive"
               width={project.attributes.image.data.attributes.width}
               height={project.attributes.image.data.attributes.height}
+              layout="responsive"
               objectFit="cover"
-              placeholder="blur"
               className="cursor-pointer brightness-50 hover:brightness-75"
             />
 

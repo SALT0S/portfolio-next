@@ -32,15 +32,13 @@ const AboutPage: NextPage<Props> = ({ about }) => {
           />
         </article>
 
-        <div className="relative">
+        <div className="block">
           <Image
             src={about.data.attributes.author.image.data.attributes.url}
             alt={about.data.attributes.author.author_title}
             layout="responsive"
             width={about.data.attributes.author.image.data.attributes.width}
             height={about.data.attributes.author.image.data.attributes.height}
-            blurDataURL={about.data.attributes.author.image.data.attributes.url}
-            placeholder="blur"
             objectFit="cover"
             className="rounded-lg"
             priority={true}

@@ -19,10 +19,8 @@ export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
               <Image
                 src={post.attributes.image.data.attributes.url}
                 alt={post.attributes.title}
-                blurDataURL={post.attributes.image.data.attributes.url}
                 layout="fill"
                 objectFit="cover"
-                placeholder="blur"
               />
             </div>
 
