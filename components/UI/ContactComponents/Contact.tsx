@@ -5,7 +5,7 @@ export const Contact = () => {
         <p>Contact data</p>
 
         <article>
-          <h2 className="my-5 text-lg font-semibold">About Me</h2>
+          <h2 className="my-5 text-lg font-bold">About Me</h2>
 
           <p className="my-4">
             I was born in Manabí - Portoviejo, since I was a kid I was always
@@ -19,54 +19,53 @@ export const Contact = () => {
       </div>
 
       <div>
-        <h1>Contact Me</h1>
+        <h1 className="mb-4 text-lg font-bold">Contact Me</h1>
 
         <form>
-          <label className="block">
-            <span className="block text-sm font-medium text-slate-700">
-              Email
-            </span>
+          <label className="mt-4 block">
+            <span className="mb-3 block ">Your Name</span>
+            <input
+              type="text"
+              className="peer block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-black focus:ring-black peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
+              placeholder="John doe"
+            />
+
+            <p className="mt-2 hidden text-sm text-pink-600 peer-required:block peer-invalid:block dark:text-pink-600">
+              Please provide a name.
+            </p>
+          </label>
+
+          <label className="mt-4 block">
+            <span className="mb-3 block ">Your Email</span>
             <input
               type="email"
-              className="peer block w-full rounded-md border-gray-700 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 peer-invalid:text-pink-600 sm:text-sm"
+              className="peer block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-black focus:ring-black peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
               placeholder="you@example.com"
             />
 
-            <p className="invisible mt-2 text-sm text-pink-600 peer-invalid:visible">
+            <p className="mt-2 hidden text-sm text-pink-600 peer-required:block peer-invalid:block dark:text-pink-600">
               Please provide a valid email address.
             </p>
           </label>
 
-          <div>
-            <label
-              htmlFor="about"
-              className="block text-sm font-medium text-gray-700"
-            >
-              About
-            </label>
-            <div className="mt-1">
-              <textarea
-                id="about"
-                name="about"
-                rows={4}
-                className="peer mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                placeholder=" you@example.com"
-                defaultValue={""}
-              />
-            </div>
-            <p className="invisible mt-2 text-sm text-pink-600 peer-required:visible peer-invalid:visible">
+          <label className="mt-4 block">
+            <span className="mb-3 block ">Message</span>
+            <textarea
+              id="about"
+              name="about"
+              rows={4}
+              placeholder="Your message"
+              className="peer block w-full resize-none rounded-md border border-gray-400 pl-7 pr-12 shadow-sm focus:border-black focus:ring-black dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
+            />
+            <p className="mt-2 hidden text-sm text-pink-600 peer-required:block peer-invalid:block dark:text-pink-600">
               Please provide a valid text message.
             </p>
-          </div>
+          </label>
+
+          <button className="mt-4 w-full rounded-md bg-black py-3 px-5 text-white hover:bg-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800">
+            SUBMIT
+          </button>
         </form>
-
-        <p>Your Full Name</p>
-        <input type="text" name="" id="" />
-        <p>Your Email</p>
-        <input type="email" name="" id="" />
-
-        <p>Your Message</p>
-        <input type="text" name="" id="" />
       </div>
     </section>
   );

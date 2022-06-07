@@ -12,8 +12,22 @@ export const Newsletter = () => {
           </p>
         </div>
 
-        <div>
-          <h2>input suscribe</h2>
+        <div className=" gap-3 md:flex">
+          <label className="block w-full">
+            <input
+              type="email"
+              className="peer block w-full rounded-md border-gray-300 bg-black py-3 pl-7 pr-12 text-white focus:border-white focus:ring-white peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
+              placeholder="Your Email"
+            />
+
+            <p className="mt-2 hidden text-sm text-pink-600 peer-invalid:block dark:text-pink-600">
+              Please provide a valid email address.
+            </p>
+          </label>
+
+          <button className="mt-5 w-full rounded-md bg-white py-3 px-5 hover:bg-gray-200 md:mt-0 md:w-auto">
+            SUSCRIBE
+          </button>
         </div>
       </div>
     </section>

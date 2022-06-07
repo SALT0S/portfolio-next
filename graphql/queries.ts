@@ -97,7 +97,7 @@ export const GET_ALL_SKILLS = gql`
     skill {
       data {
         attributes {
-          stack_skill {
+          stack_skill(pagination: { limit: 30 }) {
             id
             title
             image {
