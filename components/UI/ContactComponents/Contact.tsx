@@ -26,7 +26,7 @@ export const Contact = () => {
             <span className="mb-3 block ">Your Name</span>
             <input
               type="text"
-              className="peer block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-black focus:ring-black peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
+              className="peer block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-gray-500 focus:ring-gray-500 peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
               placeholder="John doe"
             />
 
@@ -39,7 +39,7 @@ export const Contact = () => {
             <span className="mb-3 block ">Your Email</span>
             <input
               type="email"
-              className="peer block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-black focus:ring-black peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
+              className="peer block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-gray-500 focus:ring-gray-500 peer-invalid:text-pink-600 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
               placeholder="you@example.com"
             />
 
@@ -55,7 +55,7 @@ export const Contact = () => {
               name="about"
               rows={4}
               placeholder="Your message"
-              className="peer block w-full resize-none rounded-md border border-gray-400 pl-7 pr-12 shadow-sm focus:border-black focus:ring-black dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
+              className="peer block w-full resize-none rounded-md border border-gray-400 pl-7 pr-12 shadow-sm focus:border-gray-500 focus:ring-gray-500 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
             />
             <p className="mt-2 hidden text-sm text-pink-600 peer-required:block peer-invalid:block dark:text-pink-600">
               Please provide a valid text message.
