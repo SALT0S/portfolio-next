@@ -3,61 +3,58 @@ import Image from "next/image";
 
 import { Layout } from "../../components/Layout";
 import { Newsletter } from "../../components/UI/Blog";
+import { toDate } from "../../lib/format-date";
 
 import { gqlClient } from "../../lib/graphql-client";
-import { DatumAttributesPost, IPost, IPosts } from "../../interfaces";
+import { IPost, IPosts } from "../../interfaces";
 
 import { GET_POST, GET_ALL_POSTS } from "../../graphql/queries";
 
 interface PostsProps {
-  post: DatumAttributesPost;
+  post: IPost;
 }
 
 const PostPage: React.FC<PostsProps> = ({ post }) => {
-  console.log(post);
   return (
     <Layout>
-      {/* <div className="container mx-auto my-10 grid max-w-7xl px-4 sm:px-6 md:grid-cols-2 lg:px-8">
+      <div className="container mx-auto my-10 grid max-w-7xl px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div className="relative h-96 md:h-[540px] ">
           <Image
-            src={post.data[0].attributes.image.data.attributes.url}
+            src={post.image.data.attributes.url}
             layout="fill"
-            alt={post.data[0].attributes.title}
+            alt={post.title}
             objectFit="cover"
-            placeholder="blur"
           />
         </div>
 
         <div>
           <div className="rounded-b-2xl bg-gray-200 py-[15%] px-[5%] dark:bg-zinc-900 md:rounded-b-none md:rounded-r-2xl">
-            <h1 className="text-4xl font-bold leading-normal">
-              {post.data[0].attributes.title}
-            </h1>
-            <p className="mt-5">{post.data[0].attributes.read_min}</p>
+            <h1 className="text-4xl font-bold leading-normal">{post.title}</h1>
+            <p className="mt-5">{post.read_min}</p>
           </div>
 
           <div className="px-[5%]">
             <div className="relative">
               <div className="absolute bottom-1/2 h-28 w-28 rounded-full border-8 border-white dark:border-black">
                 <Image
-                  src={post.data[0].attributes.author.image.data.attributes.url}
-                  alt={post.data[0].attributes.author.author_title}
+                  src={post.author.image.data.attributes.url}
+                  alt={post.author.author_title}
                   layout="fill"
                   objectFit="cover"
                   objectPosition="top"
                   className="rounded-full"
-                  placeholder="blur"
                 />
               </div>
             </div>
 
-            <p className="mt-16 text-lg">
-              {post.data[0].attributes.author.author_title} -
-              {post.data[0].attributes.date}
-            </p>
+            <div className="mt-16 flex gap-1 text-lg">
+              <p>{post.author.author_title}</p>
+              <span>-</span>
+              <p> {toDate(post.date.toString())}</p>
+            </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
       <div className="container mx-auto my-10 grid max-w-7xl justify-items-center gap-10 px-4 sm:px-6 md:w-1/2 md:px-0">
         <article className="md:text-lg">
@@ -165,30 +162,34 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
     </Layout>
   );
 };
-
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const { data } = await gqlClient.query({ query: GET_ALL_POSTS });
-  const posts = data.posts.data;
+  const { data: postsData } = await gqlClient.query({
+    query: GET_ALL_POSTS,
+  });
+  const posts: IPost[] = postsData.posts.data.map((post: any) => {
+    return {
+      ...post.attributes,
+    };
+  });
 
   // get the path we want
-  const paths = posts.map((post: DatumAttributesPost) => ({
+  const paths = posts.map((post: IPost) => ({
     params: { slug: post.slug },
   }));
 
   return { paths, fallback: false };
 };
 
+//Static props
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data: PostData } = await gqlClient.query({
+  const { data: postData } = await gqlClient.query({
     query: GET_POST,
     variables: {
-      where: {
-        slug: params?.slug || "",
-      },
+      slug: params?.slug,
     },
   });
 
-  const post = PostData.posts.data[0];
+  const post: IPost[] = postData.posts.data[0].attributes;
 
   return {
     props: { post },

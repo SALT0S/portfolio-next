@@ -176,10 +176,10 @@ export const GET_ALL_POSTS = gql`
 `;
 
 export const GET_POST = gql`
-  query getPost($where: JSON!) {
-    posts {
+  query getPost($slug: String!) {
+    posts(filters: { slug: { eq: $slug } }) {
       data {
-        attributes(where: $where) {
+        attributes {
           title
           slug
           date

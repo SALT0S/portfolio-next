@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   //Map of data to props
   const projects: IProjects[] = projectsData.projects.data.map(
-    (project: any) => {
+    (project: IProjects) => {
       return {
         ...project.attributes,
       };
@@ -67,6 +67,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       };
     }
   );
+
   const posts: IPosts[] = postsData.posts.data.map((post: any) => {
     return {
       ...post.attributes,
