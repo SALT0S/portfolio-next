@@ -6,10 +6,10 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 
 import { toDate } from "../../../lib/format-date";
-import { IPosts } from "../../../interfaces";
+import { PostData } from "../../../interfaces";
 
 interface PostsProps {
-  posts: IPosts[];
+  posts: PostData[];
 }
 
 export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
@@ -38,7 +38,6 @@ export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
-      centeredSlides={true}
     >
       {posts.map((post) => (
         <SwiperSlide key={post.slug} className="mt-10">

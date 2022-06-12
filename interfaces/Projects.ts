@@ -1,4 +1,8 @@
 export interface IProjects {
+  attributes: ProjectsData;
+}
+
+export interface ProjectsData {
   title: string;
   slug: string;
   description: string;

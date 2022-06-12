@@ -1,4 +1,8 @@
 export interface ISkill {
+  attributes: SkillData;
+}
+
+export interface SkillData {
   id: string;
   title: string;
   image: ImageSkill;

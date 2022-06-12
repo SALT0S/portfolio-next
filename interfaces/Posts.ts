@@ -1,4 +1,8 @@
 export interface IPosts {
+  attributes: PostData;
+}
+
+export interface PostData {
   title: string;
   slug: string;
   date: string;

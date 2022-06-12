@@ -10,7 +10,14 @@ import {
   ContactSection,
 } from "../components/UI";
 
-import { IPosts, ISkill, IProjects } from "../interfaces";
+import {
+  IProjects,
+  ISkill,
+  IPosts,
+  ProjectsData,
+  SkillData,
+  PostData,
+} from "../interfaces";
 import { gqlClient } from "../lib/graphql-client";
 import {
   GET_ALL_FEATURED_POSTS,
@@ -19,9 +26,9 @@ import {
 } from "../graphql/queries";
 
 interface Props {
-  projects: IProjects[];
-  skills: ISkill[];
-  posts: IPosts[];
+  projects: ProjectsData[];
+  skills: SkillData[];
+  posts: PostData[];
 }
 
 const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
@@ -61,14 +68,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   );
 
   const skills: ISkill[] = skillsData.skill.data.attributes.stack_skill.map(
-    (skill: any) => {
+    (skill: ISkill) => {
       return {
         ...skill,
       };
     }
   );
 
-  const posts: IPosts[] = postsData.posts.data.map((post: any) => {
+  const posts: IPosts[] = postsData.posts.data.map((post: IPosts) => {
     return {
       ...post.attributes,
     };

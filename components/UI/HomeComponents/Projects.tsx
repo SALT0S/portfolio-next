@@ -1,8 +1,8 @@
-import { IProjects } from "../../../interfaces";
+import { ProjectsData } from "../../../interfaces";
 import { ProjectCard } from "../Project";
 
 interface Props {
-  projects: IProjects[];
+  projects: ProjectsData[];
 }
 
 export const ProjectSection: React.FC<Props> = ({ projects }) => {

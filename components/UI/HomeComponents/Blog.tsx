@@ -1,8 +1,8 @@
-import { IPosts } from "../../../interfaces";
+import { PostData } from "../../../interfaces";
 import { PostCardHome } from "../Blog";
 
 interface PostsProps {
-  posts: IPosts[];
+  posts: PostData[];
 }
 export const BlogSection: React.FC<PostsProps> = ({ posts }) => {
   return (

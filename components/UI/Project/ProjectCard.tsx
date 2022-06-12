@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
+
 import { MdOutlineScreenShare } from "react-icons/Md";
 import { AiFillGithub } from "react-icons/ai";
 
-import { IProjects } from "../../../interfaces";
-import Link from "next/link";
+import { ProjectsData } from "../../../interfaces";
 
 interface Props {
-  projects: IProjects[];
+  projects: ProjectsData[];
 }
 export const ProjectCard: React.FC<Props> = ({ projects }) => {
   return (

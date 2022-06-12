@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ISkill } from "../../../interfaces";
+import { SkillData } from "../../../interfaces";
 
 // Carousel
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +7,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 
 interface SkillsProps {
-  skills: ISkill[];
+  skills: SkillData[];
 }
 export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
   return (

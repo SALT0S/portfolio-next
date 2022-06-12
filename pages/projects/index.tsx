@@ -1,25 +1,51 @@
+import type { NextPage, GetStaticProps } from "next";
+
 import { Layout } from "../../components/Layout";
-const HomeProjectPage = () => {
+import { ProjectCard } from "../../components/UI/Project";
+
+import { gqlClient } from "../../lib/graphql-client";
+import { GET_ALL_FEATURED_PROJECTS } from "../../graphql/queries";
+
+import { IProjects, ProjectsData } from "../../interfaces";
+
+interface Props {
+  projects: ProjectsData[];
+}
+const HomeProjectPage: NextPage<Props> = ({ projects }) => {
   return (
     <Layout>
-      <div className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8 ">
-        <div>
-          <h1>HomeProjectPage</h1>
-          <h2>About the project</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tellus
-            risus, scelerisque non dolor ac, maximus faucibus felis. Donec quis
-            libero sagittis tellus consectetur ullamcorper. Mauris tortor lacus,
-            tristique in consectetur quis, pellentesque nec est. Curabitur
-            vehicula in turpis vitae consectetur. Pellentesque sed lorem vitae
-            quam congue faucibus.
-          </p>
+      <section className="container mx-auto my-10 max-w-[1540px] px-4 text-center sm:px-6 lg:px-8">
+        <div className="md:mx-auto md:w-2/3">
+          <h2 className="my-10 text-5xl">Projects</h2>
         </div>
 
-        <div>imagen</div>
-      </div>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <ProjectCard projects={projects} />
+        </div>
+      </section>
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { data: projectsData } = await gqlClient.query({
+    query: GET_ALL_FEATURED_PROJECTS,
+  });
+
+  //Map of data to props
+  const projects: IProjects[] = projectsData.projects.data.map(
+    (project: IProjects) => {
+      return {
+        ...project.attributes,
+      };
+    }
+  );
+
+  return {
+    props: {
+      projects,
+    },
+  };
 };
 
 export default HomeProjectPage;
