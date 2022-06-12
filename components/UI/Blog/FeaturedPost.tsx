@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { IPosts } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
 
@@ -31,12 +32,16 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
                 ? `${post.title}`
                 : `${post.title.substring(0, 36)}...`}
             </h2>
-            <p>
+
+            <p className="mb-10">
               {post.description.length < 140
                 ? `${post.description}`
                 : `${post.description.substring(0, 145)}...`}
             </p>
-            <p className="mt-10">Read post</p>
+
+            <Link href={`/blog/${post.slug}`} prefetch={false} passHref>
+              <a>Read post</a>
+            </Link>
           </div>
         </div>
       ))}

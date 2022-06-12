@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
@@ -41,19 +42,23 @@ export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
     >
       {posts.map((post) => (
         <SwiperSlide key={post.slug} className="mt-10">
-          <div className="relative h-80 w-full">
-            <Image
-              src={post.image.data.attributes.url}
-              alt={post.title}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          <Link href={`/blog/${post.slug}`} prefetch={false} passHref>
+            <a>
+              <div className="relative h-80 w-full">
+                <Image
+                  src={post.image.data.attributes.url}
+                  alt={post.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
 
-          <article className="p-5">
-            <p className="text-sm">{toDate(post.date)}</p>
-            <h2 className="my-2 text-2xl font-semibold">{post.title}</h2>
-          </article>
+              <article className="p-5">
+                <p className="text-sm">{toDate(post.date)}</p>
+                <h2 className="my-2 text-2xl font-semibold">{post.title}</h2>
+              </article>
+            </a>
+          </Link>
         </SwiperSlide>
       ))}
     </Swiper>
