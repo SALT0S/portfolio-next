@@ -5,10 +5,10 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 
 import { toDate } from "../../../lib/format-date";
-import { IPost } from "../../../interfaces";
+import { IPosts } from "../../../interfaces";
 
 interface PostsProps {
-  posts: IPost;
+  posts: IPosts[];
 }
 
 export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
@@ -39,22 +39,20 @@ export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
       modules={[Autoplay]}
       centeredSlides={true}
     >
-      {posts.data.map((post) => (
-        <SwiperSlide key={post.attributes.slug} className="mt-10">
+      {posts.map((post) => (
+        <SwiperSlide key={post.slug} className="mt-10">
           <div className="relative h-80 w-full">
             <Image
-              src={post.attributes.image.data.attributes.url}
-              alt={post.attributes.title}
+              src={post.image.data.attributes.url}
+              alt={post.title}
               layout="fill"
               objectFit="cover"
             />
           </div>
 
           <article className="p-5">
-            <p className="text-sm">{toDate(post.attributes.date)}</p>
-            <h2 className="my-2 text-2xl font-semibold">
-              {post.attributes.title}
-            </h2>
+            <p className="text-sm">{toDate(post.date)}</p>
+            <h2 className="my-2 text-2xl font-semibold">{post.title}</h2>
           </article>
         </SwiperSlide>
       ))}

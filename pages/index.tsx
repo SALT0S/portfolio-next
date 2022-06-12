@@ -10,19 +10,21 @@ import {
   ContactSection,
 } from "../components/UI";
 
-import { IPost, ISkill, IProjects } from "../interfaces";
+import { IPosts, ISkill, IProjects } from "../interfaces";
 
 import { gqlClient } from "../lib/graphql-client";
 import {
   GET_ALL_FEATURED_POSTS,
   GET_ALL_FEATURED_PROJECTS,
+  GET_ALL_POSTS,
   GET_ALL_SKILLS,
+  GET_POST,
 } from "../graphql/queries";
 
 interface Props {
-  projects: IProjects;
-  skills: ISkill;
-  posts: IPost;
+  projects: IProjects[];
+  skills: ISkill[];
+  posts: IPosts[];
 }
 
 const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
@@ -39,7 +41,7 @@ const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data: projectsData } = await gqlClient.query({
     query: GET_ALL_FEATURED_PROJECTS,
   });
@@ -52,9 +54,27 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     query: GET_ALL_FEATURED_POSTS,
   });
 
-  const projects: ISkill = projectsData.projects;
-  const skills: ISkill = skillsData.skill;
-  const posts: IPost = postsData.posts;
+  //Map of data to props
+  const projects: IProjects[] = projectsData.projects.data.map(
+    (project: any) => {
+      return {
+        ...project.attributes,
+      };
+    }
+  );
+
+  const skills: ISkill[] = skillsData.skill.data.attributes.stack_skill.map(
+    (skill: any) => {
+      return {
+        ...skill,
+      };
+    }
+  );
+  const posts: IPosts[] = postsData.posts.data.map((post: any) => {
+    return {
+      ...post.attributes,
+    };
+  });
 
   return {
     props: {

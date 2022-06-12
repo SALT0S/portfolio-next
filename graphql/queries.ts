@@ -138,3 +138,75 @@ export const GET_ALL_ABOUT = gql`
     }
   }
 `;
+
+export const GET_ALL_POSTS = gql`
+  query getPosts {
+    posts {
+      data {
+        attributes {
+          title
+          slug
+          date
+          read_min
+          content
+          description
+          seo_title
+          featured
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          author {
+            author_title
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_POST = gql`
+  query getPost($where: JSON!) {
+    posts {
+      data {
+        attributes(where: $where) {
+          title
+          slug
+          date
+          read_min
+          content
+          description
+          seo_title
+          featured
+          image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          author {
+            author_title
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

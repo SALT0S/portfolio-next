@@ -7,7 +7,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 
 interface SkillsProps {
-  skills: ISkill;
+  skills: ISkill[];
 }
 export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
   return (
@@ -54,7 +54,7 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
           }}
           modules={[Autoplay]}
         >
-          {skills.data.attributes.stack_skill.map((skill) => (
+          {skills.map((skill) => (
             <SwiperSlide key={skill.id} className="text-center">
               <Image
                 src={skill.image.data.attributes.url}

@@ -1,12 +1,4 @@
-export interface IPost {
-  data: Datum[];
-}
-
-export interface Datum {
-  attributes: DatumAttributes;
-}
-
-export interface DatumAttributes {
+export interface IPosts {
   title: string;
   slug: string;
   date: string;

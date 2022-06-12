@@ -1,12 +1,4 @@
 export interface IProjects {
-  data: DatumProjects[];
-}
-
-export interface DatumProjects {
-  attributes: DatumProjectsAttributes;
-}
-
-export interface DatumProjectsAttributes {
   title: string;
   slug: string;
   description: string;

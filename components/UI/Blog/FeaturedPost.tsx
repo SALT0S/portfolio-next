@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { IPost } from "../../../interfaces";
+import { IPosts } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
 
 interface PostsProps {
-  posts: IPost;
+  posts: IPosts;
 }
 
 export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
