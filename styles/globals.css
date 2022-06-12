@@ -25,6 +25,12 @@
     margin-inline-start: 40px;
     margin-inline-end: 40px;
   }
+  article.text-post p strong {
+    @apply text-black dark:text-white;
+  }
+  article.text-post blockquote i strong {
+    @apply text-2xl text-red-500 dark:text-red-500;
+  }
 }
 
 html,
@@ -56,7 +62,7 @@ a {
   margin-bottom: 1rem;
 }
 
-.text-blockquote blockquote {
+article.text-post blockquote {
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 40px;

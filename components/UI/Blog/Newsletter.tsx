@@ -25,7 +25,7 @@ export const Newsletter = () => {
             </p>
           </label>
 
-          <button className="mt-5 w-full rounded-md bg-white py-3 px-5 hover:bg-gray-200 md:mt-0 md:w-auto">
+          <button className="mt-5 w-full rounded-md bg-white py-3 px-5 text-black hover:bg-gray-200 md:mt-0 md:w-auto">
             SUSCRIBE
           </button>
         </div>
