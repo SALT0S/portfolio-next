@@ -11,14 +11,11 @@ import {
 } from "../components/UI";
 
 import { IPosts, ISkill, IProjects } from "../interfaces";
-
 import { gqlClient } from "../lib/graphql-client";
 import {
   GET_ALL_FEATURED_POSTS,
   GET_ALL_FEATURED_PROJECTS,
-  GET_ALL_POSTS,
   GET_ALL_SKILLS,
-  GET_POST,
 } from "../graphql/queries";
 
 interface Props {
@@ -41,7 +38,7 @@ const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data: projectsData } = await gqlClient.query({
     query: GET_ALL_FEATURED_PROJECTS,
   });

@@ -1,12 +1,4 @@
 export interface IAbout {
-  data: AboutData;
-}
-
-export interface AboutData {
-  attributes: AboutPurpleAttributes;
-}
-
-export interface AboutPurpleAttributes {
   description: string;
   content: string;
   author: Author;

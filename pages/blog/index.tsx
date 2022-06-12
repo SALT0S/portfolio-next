@@ -5,7 +5,7 @@ import { Layout } from "../../components/Layout/Layout";
 import { FeaturedPost, PostCard, Newsletter } from "../../components/UI/Blog";
 
 // interfaces
-import { IPost } from "../../interfaces";
+import { IPosts } from "../../interfaces";
 import { gqlClient } from "../../lib/graphql-client";
 import {
   GET_ALL_UNFEATURED_POSTS,
@@ -13,10 +13,10 @@ import {
 } from "../../graphql/queries";
 
 interface Props {
-  posts: IPost;
-  postsFeatured: IPost;
+  postsFeatured: IPosts[];
+  postsUnFeatured: IPosts[];
 }
-const BlogPage: NextPage<Props> = ({ posts, postsFeatured }) => {
+const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
   return (
     <Layout>
       <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -24,7 +24,7 @@ const BlogPage: NextPage<Props> = ({ posts, postsFeatured }) => {
       </section>
 
       <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <PostCard posts={posts} />
+        <PostCard posts={postsUnFeatured} />
       </section>
       <Newsletter />
     </Layout>
@@ -40,13 +40,25 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     query: GET_ALL_UNFEATURED_POSTS,
   });
 
-  const postsFeatured: IPost = featuredPostsData.posts;
-  const posts: IPost = unfeaturedPostsData.posts;
+  const postsFeatured: IPosts[] = featuredPostsData.posts.data.map(
+    (post: any) => {
+      return {
+        ...post.attributes,
+      };
+    }
+  );
+  const postsUnFeatured: IPosts[] = unfeaturedPostsData.posts.data.map(
+    (post: any) => {
+      return {
+        ...post.attributes,
+      };
+    }
+  );
 
   return {
     props: {
       postsFeatured,
-      posts,
+      postsUnFeatured,
     },
   };
 };

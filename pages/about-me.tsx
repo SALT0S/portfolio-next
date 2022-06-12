@@ -27,18 +27,18 @@ const AboutPage: NextPage<Props> = ({ about }) => {
           <div
             className="text-about text-post text-lg"
             dangerouslySetInnerHTML={{
-              __html: about.data.attributes.content,
+              __html: about.content,
             }}
           />
         </article>
 
         <div className="block">
           <Image
-            src={about.data.attributes.author.image.data.attributes.url}
-            alt={about.data.attributes.author.author_title}
+            src={about.author.image.data.attributes.url}
+            alt={about.author.author_title}
             layout="responsive"
-            width={about.data.attributes.author.image.data.attributes.width}
-            height={about.data.attributes.author.image.data.attributes.height}
+            width={about.author.image.data.attributes.width}
+            height={about.author.image.data.attributes.height}
             objectFit="cover"
             className="rounded-lg"
             priority={true}
@@ -54,7 +54,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     query: GET_ALL_ABOUT,
   });
 
-  const about: IAbout = aboutData.about;
+  const about: IAbout = aboutData.about.data.attributes;
 
   return {
     props: {
