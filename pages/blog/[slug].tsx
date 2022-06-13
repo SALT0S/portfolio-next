@@ -6,7 +6,7 @@ import { Newsletter } from "../../components/UI/Blog";
 import { toDate } from "../../lib/format-date";
 
 import { gqlClient } from "../../lib/graphql-client";
-import { IPost, IPosts } from "../../interfaces";
+import { IPost } from "../../interfaces";
 
 import { GET_POST, GET_ALL_POSTS } from "../../graphql/queries";
 
@@ -67,6 +67,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
     </Layout>
   );
 };
+
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const { data: postsData } = await gqlClient.query({
     query: GET_ALL_POSTS,

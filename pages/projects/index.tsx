@@ -4,7 +4,7 @@ import { Layout } from "../../components/Layout";
 import { ProjectCard } from "../../components/UI/Project";
 
 import { gqlClient } from "../../lib/graphql-client";
-import { GET_ALL_FEATURED_PROJECTS } from "../../graphql/queries";
+import { GET_ALL_PROJECTS } from "../../graphql/queries";
 
 import { IProjects, ProjectsData } from "../../interfaces";
 
@@ -29,7 +29,7 @@ const HomeProjectPage: NextPage<Props> = ({ projects }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data: projectsData } = await gqlClient.query({
-    query: GET_ALL_FEATURED_PROJECTS,
+    query: GET_ALL_PROJECTS,
   });
 
   //Map of data to props

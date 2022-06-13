@@ -33,6 +33,34 @@ export const GET_ALL_PROJECTS = gql`
           title
           slug
           description
+          github_url
+          page_url
+          image {
+            data {
+              attributes {
+                url
+                width
+                height
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_PROJECT = gql`
+  query getProject($slug: String!) {
+    projects(filters: { slug: { eq: $slug } }) {
+      data {
+        attributes {
+          title
+          slug
+          description
+          content
+          github_url
+          page_url
           image {
             data {
               attributes {

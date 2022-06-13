@@ -1,25 +1,38 @@
+import { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
-import { Layout } from "../../components/Layout";
 
 import { AiFillGithub } from "react-icons/ai";
 import { MdOutlineScreenShare } from "react-icons/Md";
 
-import Project1 from "/public/static/img/Project1.webp";
-const ProjectPage = () => {
+import { Layout } from "../../components/Layout";
+
+import { gqlClient } from "../../lib/graphql-client";
+import { IProject } from "../../interfaces";
+
+import { GET_PROJECT, GET_ALL_PROJECTS } from "../../graphql/queries";
+
+interface PostsProps {
+  project: IProject;
+}
+
+const ProjectPage: React.FC<PostsProps> = ({ project }) => {
   return (
     <Layout>
       <div className="container mx-auto my-10 grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8 ">
-        <Image
-          src={Project1}
-          alt="Project1"
-          layout="responsive"
-          objectFit="cover"
-          placeholder="blur"
-          className="rounded-2xl"
-        />
+        <div className="relative">
+          <Image
+            src={project.image.data.attributes.url}
+            alt="Project1"
+            layout="responsive"
+            width={"100%"}
+            height={"100%"}
+            objectFit="cover"
+            className="rounded-2xl"
+          />
+        </div>
 
         <div>
-          <h1 className="text-6xl font-bold md:text-7xl">Project #1</h1>
+          <h1 className="text-6xl font-bold md:text-7xl">{project.title}</h1>
 
           <div className="my-5 flex gap-6">
             <div className="flex rounded-3xl bg-black py-1 px-2 dark:bg-white">
@@ -54,6 +67,42 @@ const ProjectPage = () => {
       </div>
     </Layout>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
+  const { data: projectsData } = await gqlClient.query({
+    query: GET_ALL_PROJECTS,
+  });
+  const projects: IProject[] = projectsData.projects.data.map(
+    (project: any) => {
+      return {
+        ...project.attributes,
+      };
+    }
+  );
+
+  // get the path we want
+  const paths = projects.map((project: IProject) => ({
+    params: { slug: project.slug },
+  }));
+
+  return { paths, fallback: false };
+};
+
+//Static props
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { data: projectData } = await gqlClient.query({
+    query: GET_PROJECT,
+    variables: {
+      slug: params?.slug,
+    },
+  });
+
+  const project: IProject[] = projectData.projects.data[0].attributes;
+
+  return {
+    props: { project },
+  };
 };
 
 export default ProjectPage;
