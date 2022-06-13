@@ -14,9 +14,9 @@ import {
   IProjects,
   ISkill,
   IPosts,
-  ProjectsData,
+  IProject,
   SkillData,
-  PostData,
+  IPost,
 } from "../interfaces";
 import { gqlClient } from "../lib/graphql-client";
 import {
@@ -26,9 +26,9 @@ import {
 } from "../graphql/queries";
 
 interface Props {
-  projects: ProjectsData[];
+  projects: IProject[];
   skills: SkillData[];
-  posts: PostData[];
+  posts: IPost[];
 }
 
 const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   });
 
   //Map of data to props
-  const projects: IProjects[] = projectsData.projects.data.map(
+  const projects: IProject[] = projectsData.projects.data.map(
     (project: IProjects) => {
       return {
         ...project.attributes,
@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     }
   );
 
-  const skills: ISkill[] = skillsData.skill.data.attributes.stack_skill.map(
+  const skills: SkillData[] = skillsData.skill.data.attributes.stack_skill.map(
     (skill: ISkill) => {
       return {
         ...skill,
@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     }
   );
 
-  const posts: IPosts[] = postsData.posts.data.map((post: IPosts) => {
+  const posts: IPost[] = postsData.posts.data.map((post: IPosts) => {
     return {
       ...post.attributes,
     };

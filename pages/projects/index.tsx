@@ -6,10 +6,10 @@ import { ProjectCard } from "../../components/UI/Project";
 import { gqlClient } from "../../lib/graphql-client";
 import { GET_ALL_PROJECTS } from "../../graphql/queries";
 
-import { IProjects, ProjectsData } from "../../interfaces";
+import { IProjects, IProject } from "../../interfaces";
 
 interface Props {
-  projects: ProjectsData[];
+  projects: IProject[];
 }
 const HomeProjectPage: NextPage<Props> = ({ projects }) => {
   return (
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   });
 
   //Map of data to props
-  const projects: IProjects[] = projectsData.projects.data.map(
+  const projects: IProject[] = projectsData.projects.data.map(
     (project: IProjects) => {
       return {
         ...project.attributes,

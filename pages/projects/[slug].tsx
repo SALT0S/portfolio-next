@@ -7,7 +7,7 @@ import { MdOutlineScreenShare } from "react-icons/Md";
 import { Layout } from "../../components/Layout";
 
 import { gqlClient } from "../../lib/graphql-client";
-import { IProject } from "../../interfaces";
+import { IProject, IProjects } from "../../interfaces";
 
 import { GET_PROJECT, GET_ALL_PROJECTS } from "../../graphql/queries";
 
@@ -22,10 +22,10 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
         <div className="relative">
           <Image
             src={project.image.data.attributes.url}
-            alt="Project1"
+            alt={project.title}
             layout="responsive"
-            width={"100%"}
-            height={"100%"}
+            width={project.image.data.attributes.width}
+            height={project.image.data.attributes.height}
             objectFit="cover"
             className="rounded-2xl"
           />
@@ -55,14 +55,10 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
 
           <div>technologies</div>
 
-          <p className="my-5 text-lg ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tellus
-            risus, scelerisque non dolor ac, maximus faucibus felis. Donec quis
-            libero sagittis tellus consectetur ullamcorper. Mauris tortor lacus,
-            tristique in consectetur quis, pellentesque nec est. Curabitur
-            vehicula in turpis vitae consectetur. Pellentesque sed lorem vitae
-            quam congue faucibus.
-          </p>
+          <article
+            className="text-post my-5 md:text-lg"
+            dangerouslySetInnerHTML={{ __html: project.content }}
+          />
         </div>
       </div>
     </Layout>
@@ -74,7 +70,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     query: GET_ALL_PROJECTS,
   });
   const projects: IProject[] = projectsData.projects.data.map(
-    (project: any) => {
+    (project: IProjects) => {
       return {
         ...project.attributes,
       };

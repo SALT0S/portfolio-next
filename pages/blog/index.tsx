@@ -5,7 +5,7 @@ import { Layout } from "../../components/Layout/Layout";
 import { FeaturedPost, PostCard, Newsletter } from "../../components/UI/Blog";
 
 // interfaces
-import { IPosts } from "../../interfaces";
+import { IPosts, IPost } from "../../interfaces";
 import { gqlClient } from "../../lib/graphql-client";
 import {
   GET_ALL_UNFEATURED_POSTS,
@@ -13,8 +13,8 @@ import {
 } from "../../graphql/queries";
 
 interface Props {
-  postsFeatured: IPosts[];
-  postsUnFeatured: IPosts[];
+  postsFeatured: IPost[];
+  postsUnFeatured: IPost[];
 }
 const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
   return (
@@ -40,15 +40,15 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     query: GET_ALL_UNFEATURED_POSTS,
   });
 
-  const postsFeatured: IPosts[] = featuredPostsData.posts.data.map(
-    (post: any) => {
+  const postsFeatured: IPost[] = featuredPostsData.posts.data.map(
+    (post: IPosts) => {
       return {
         ...post.attributes,
       };
     }
   );
-  const postsUnFeatured: IPosts[] = unfeaturedPostsData.posts.data.map(
-    (post: any) => {
+  const postsUnFeatured: IPost[] = unfeaturedPostsData.posts.data.map(
+    (post: IPosts) => {
       return {
         ...post.attributes,
       };

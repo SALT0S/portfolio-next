@@ -1,7 +1,7 @@
 export interface IPost {
   title: string;
   slug: string;
-  date: Date;
+  date: string;
   read_min: string;
   content: string;
   description: string;

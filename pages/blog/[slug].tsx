@@ -6,7 +6,7 @@ import { Newsletter } from "../../components/UI/Blog";
 import { toDate } from "../../lib/format-date";
 
 import { gqlClient } from "../../lib/graphql-client";
-import { IPost } from "../../interfaces";
+import { IPost, IPosts } from "../../interfaces";
 
 import { GET_POST, GET_ALL_POSTS } from "../../graphql/queries";
 
@@ -50,7 +50,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
             <div className="mt-16 flex gap-1 text-lg">
               <p>{post.author.author_title}</p>
               <span>-</span>
-              <p> {toDate(post.date.toString())}</p>
+              <p>{toDate(post.date)}</p>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const { data: postsData } = await gqlClient.query({
     query: GET_ALL_POSTS,
   });
-  const posts: IPost[] = postsData.posts.data.map((post: any) => {
+  const posts: IPost[] = postsData.posts.data.map((post: IPosts) => {
     return {
       ...post.attributes,
     };

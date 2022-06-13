@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { IPosts } from "../../../interfaces";
+import { IPost } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
 
 interface PostsProps {
-  posts: IPosts[];
+  posts: IPost[];
 }
 
 export const PostCard: React.FC<PostsProps> = ({ posts }) => {
