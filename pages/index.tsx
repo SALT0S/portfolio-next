@@ -37,7 +37,7 @@ const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
       {/* container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8 */}
       <HeaderSection />
       <ProjectSection projects={projects} />
-      {/* <SkillSection skills={skills} /> */}
+     <SkillSection skills={skills} />  
       <BlogSection posts={posts} />
       <AboutSection />
       <ContactSection />
