@@ -22,8 +22,10 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
           <Image
             src={post.image.data.attributes.url}
             layout="fill"
+            sizes="(max-width: 640px) 100vw, 640px"
             alt={post.title}
             objectFit="cover"
+            priority={true}
           />
         </div>
 
@@ -42,6 +44,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
                   layout="fill"
                   objectFit="cover"
                   objectPosition="top"
+                  sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 100vw"
                   className="rounded-full"
                 />
               </div>

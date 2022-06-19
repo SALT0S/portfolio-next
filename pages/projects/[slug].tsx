@@ -28,6 +28,8 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
             height={project.image.data.attributes.height}
             objectFit="cover"
             className="rounded-2xl"
+            sizes="(max-width: 640px) 100vw, 640px"
+            priority={true}
           />
         </div>
 

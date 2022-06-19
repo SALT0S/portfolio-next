@@ -40,6 +40,7 @@ const AboutPage: NextPage<Props> = ({ about }) => {
             width={about.author.image.data.attributes.width}
             height={about.author.image.data.attributes.height}
             objectFit="cover"
+            sizes="(max-width: 640px) 100vw, 640px"
             className="rounded-lg"
             priority={true}
           />
