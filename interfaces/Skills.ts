@@ -18,4 +18,6 @@ export interface ImageSkillData {
 
 export interface FluffyAttributes {
   url: string;
+  width: number;
+  height: number;
 }

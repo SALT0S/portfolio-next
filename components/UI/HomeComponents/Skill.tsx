@@ -56,17 +56,19 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
         >
           {skills.map((skill) => (
             <SwiperSlide key={skill.id} className="text-center">
-              <Image
-                src={skill.image.data.attributes.url}
-                alt={skill.title}
-                layout="intrinsic"
-                width={100}
-                height={100}
-                loading="lazy"
-                objectFit="cover"
-                sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, (max-width: 1215px) 33vw, (max-width: 1599px) 25vw, (max-width: 1919px) 20vw, (max-width: 2559px) 16vw, (max-width: 3839px) 12vw, (max-width: 5679px) 8vw, (max-width: 9999px) 4vw, 100vw"
-                className="mx-auto rounded-full"
-              />
+              <div className="relative mx-auto h-28 w-28">
+                <Image
+                  src={skill.image.data.attributes.url}
+                  alt={skill.title}
+                  layout="responsive"
+                  width={112}
+                  height={112}
+                  loading="lazy"
+                  objectFit="cover"
+                  sizes="(max-width: 767px) 112px"
+                  className="rounded-full"
+                />
+              </div>
               <p className="pt-2 text-center text-lg text-white">
                 {skill.title}
               </p>

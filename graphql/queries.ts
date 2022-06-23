@@ -132,6 +132,8 @@ export const GET_ALL_SKILLS = gql`
               data {
                 attributes {
                   url
+                  width
+                  height
                 }
               }
             }
