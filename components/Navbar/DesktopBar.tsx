@@ -1,5 +1,5 @@
-import { useState } from "react";
-import useTheme from "next-theme";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 
 import { Popover, Switch } from "@headlessui/react";
@@ -12,9 +12,10 @@ export const DesktopBar = () => {
   const { theme, setTheme } = useTheme();
   const [themeState, setThemeState] = useState(false);
 
-  const handleTheme = () => {
-    setThemeState(theme === "light" ? !themeState : themeState);
-  };
+  useEffect(() => {
+    setThemeState(theme === "light" ? true : false);
+  }, [theme, themeState]);
+
   return (
     <div className="relative h-auto w-auto">
       <nav
@@ -57,23 +58,23 @@ export const DesktopBar = () => {
         <div className="hidden md:flex">
           <Switch
             checked={themeState}
-            onChange={handleTheme}
+            onChange={() => themeState}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className={`${
-              theme === "dark" ? "bg-white" : "bg-zinc-900"
+              themeState === false ? "bg-white" : "bg-black"
             } relative inline-flex h-6 w-11 items-center rounded-full`}
           >
             <span className="sr-only">
-              Enable {theme === "light" ? "Light Mode" : "Dark Mode"}
+              Enable {themeState === false ? "Light Mode" : "Dark Mode"}
             </span>
             <span
               className={`${
-                theme === "dark" ? "translate-x-6" : "translate-x-1"
+                themeState === false ? "translate-x-6" : "translate-x-1"
               } inline-block h-4 w-4 transform rounded-full bg-white dark:bg-black`}
             />
           </Switch>
           <p className="ml-2">
-            {theme === "light" ? "Light Mode" : "Dark Mode"}
+            {themeState === false ? "Light Mode" : "Dark Mode"}
           </p>
         </div>
       </nav>

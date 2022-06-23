@@ -1,5 +1,5 @@
-import { Fragment, useState } from "react";
-import useTheme from "next-theme";
+import { Fragment, useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 import { Popover, Transition, Switch } from "@headlessui/react";
 import { HiX } from "react-icons/hi";
@@ -7,17 +7,13 @@ import { HiX } from "react-icons/hi";
 import { ActiveLink } from "./ActiveLink";
 import MenuNav from "../constants/MenuNav";
 
-const ActiveStyle = {
-  fontWeight: "bold",
-};
-
 export const MobileBar = () => {
   const { theme, setTheme } = useTheme();
   const [themeState, setThemeState] = useState(false);
 
-  const handleTheme = () => {
-    setThemeState(theme === "light" ? !themeState : themeState);
-  };
+  useEffect(() => {
+    setThemeState(theme === "light" ? true : false);
+  }, [theme, themeState]);
   return (
     <Transition
       as={Fragment}
@@ -68,22 +64,22 @@ export const MobileBar = () => {
             <div className="flex justify-center">
               <Switch
                 checked={themeState}
-                onChange={handleTheme}
+                onChange={() => themeState}
                 className={`${
-                  theme === "dark" ? "bg-white" : "bg-zinc-900"
+                  themeState === false ? "bg-white" : "bg-zinc-900"
                 } relative inline-flex h-6 w-11 items-center rounded-full`}
               >
                 <span className="sr-only">
-                  Enable {theme === "light" ? "Light Mode" : "Dark Mode"}
+                  Enable {themeState === false ? "Light Mode" : "Dark Mode"}
                 </span>
                 <span
                   className={`${
-                    theme === "dark" ? "translate-x-6" : "translate-x-1"
+                    themeState === false ? "translate-x-6" : "translate-x-1"
                   } inline-block h-4 w-4 transform rounded-full bg-white dark:bg-black`}
                 />
               </Switch>
               <p className="ml-2">
-                {theme === "light" ? "Light Mode" : "Dark Mode"}
+                {themeState === false ? "Light Mode" : "Dark Mode"}
               </p>
             </div>
           </button>
