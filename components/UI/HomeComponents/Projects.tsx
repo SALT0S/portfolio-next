@@ -1,4 +1,5 @@
 import { ProjectsData } from "../../../interfaces";
+import { LinkButton } from "../Button";
 import { ProjectCard } from "../Project";
 
 interface Props {
@@ -14,6 +15,10 @@ export const ProjectSection: React.FC<Props> = ({ projects }) => {
 
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
         <ProjectCard projects={projects} />
+      </div>
+
+      <div className="mt-10">
+        <LinkButton url="/projects" text="View all projects" />
       </div>
     </section>
   );

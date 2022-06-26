@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LinkButton } from "../Button";
 import Astronaut from "/public/static/gif/Astronaut.gif";
 export const AboutSection = () => {
   return (
@@ -19,6 +20,9 @@ export const AboutSection = () => {
               introduction about myself, if you want to know more about me you
               can check it out ;)
             </p>
+            <div className="mt-2 text-white">
+              <LinkButton url="/about-me" text="About me" />
+            </div>
           </div>
         </div>
       </div>

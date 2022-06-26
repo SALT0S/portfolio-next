@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { SkillData } from "../../../interfaces";
 
 // Carousel
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +7,7 @@ import "swiper/css";
 
 import { IPost } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
+import { LinkButton } from "../Button";
 
 interface PostsProps {
   posts: IPost[];
@@ -53,9 +52,7 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
                   : `${post.description.substring(0, 145)}...`}
               </p>
 
-              <Link href={`/blog/${post.slug}`} prefetch={false} passHref>
-                <a>Read post</a>
-              </Link>
+              <LinkButton url={`/blog/${post.slug}`} text="Read More" />
             </div>
           </div>
         </SwiperSlide>

@@ -1,5 +1,6 @@
 import { PostData } from "../../../interfaces";
 import { PostCardHome } from "../Blog";
+import { LinkButton } from "../Button";
 
 interface PostsProps {
   posts: PostData[];
@@ -10,6 +11,10 @@ export const BlogSection: React.FC<PostsProps> = ({ posts }) => {
       <h2 className="text-center text-5xl">Blog about personal opinions</h2>
 
       <PostCardHome posts={posts} />
+
+      <div className="mt-10 text-center">
+        <LinkButton url="/blog" text="View all posts" />
+      </div>
     </section>
   );
 };

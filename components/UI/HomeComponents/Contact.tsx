@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LinkButton } from "../Button";
 import CatGif from "/public/static/gif/CatGif.gif";
 
 export const ContactSection = () => {
@@ -11,6 +12,7 @@ export const ContactSection = () => {
           page, there are my personal data, and you can also contact me with a
           simple form.
         </p>
+        <LinkButton url="/contact" text="Contact me" />
       </div>
       <div className="h-2/4 md:w-3/4">
         <Image src={CatGif} layout="responsive" alt="Cat Gif" />
