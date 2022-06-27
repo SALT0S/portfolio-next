@@ -1,2 +1,2 @@
 export * from "./HomeComponents";
-export * from "./ContactComponents";
+export * from "./Contact";
