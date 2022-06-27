@@ -27,7 +27,7 @@ const Input = ({
         name={name}
         placeholder={placeholder}
         className="block w-full rounded-md border-gray-400 py-3 pl-7 pr-12 focus:border-gray-500 focus:ring-gray-500 dark:border-zinc-500 dark:bg-zinc-900 dark:focus:ring-white sm:text-sm"
-        autoComplete="off"
+        autoComplete="nope"
       />
       {error && (
         <p className="mt-2 text-sm text-pink-600 dark:text-pink-600">

@@ -22,6 +22,7 @@ export const Form = () => {
   const [errors, setErrors] = useState<IErrors>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [messageState, setMessageState] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,12 +40,15 @@ export const Form = () => {
         },
         body: JSON.stringify(values),
       });
-      if (res.ok) {
+      if (res.status === 200) {
         setValues({ name: "", email: "", message: "" });
         setSuccess(true);
+      } else {
+        setMessageState("Something went wrong, please try again later.");
       }
     } catch (err) {
       console.log(err);
+      setMessageState(String(err));
     }
     setLoading(false);
   };
@@ -109,7 +113,11 @@ export const Form = () => {
         )}
       </button>
       <p className="mt-5 text-green-500 dark:text-green-500">
-        {success == true ? "Your message was sent successfully." : ""}
+        {success !== false ? (
+          "Your message was sent successfully."
+        ) : (
+          <span className="text-red-500 dark:text-red-500">{messageState}</span>
+        )}
       </p>
     </form>
   );
