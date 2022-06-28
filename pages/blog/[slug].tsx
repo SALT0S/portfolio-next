@@ -21,10 +21,10 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
         <div className="relative h-96 md:h-[540px] ">
           <Image
             src={post.image.data.attributes.url}
-            layout="fill"
-            sizes="(max-width: 640px) 100vw, 640px"
             alt={post.title}
+            layout="fill"
             objectFit="cover"
+            sizes="(max-width: 640px) 100vw, 640px"
             priority={true}
           />
         </div>
