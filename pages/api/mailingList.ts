@@ -17,7 +17,7 @@ export default async function handler(
     list_ids: [process.env.SENDGRID_MAILING_ID],
   };
   const headers = {
-    Authorization: `Bearer ${process.env.SENDGRID_API_KEYasa}`,
+    Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
     "Content-Type": "application/json",
   };
 
