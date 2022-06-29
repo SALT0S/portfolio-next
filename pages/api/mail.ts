@@ -22,7 +22,7 @@ export default function handler(
 
     const data = {
       to: "josesansalt@gmail.com",
-      from: "sendgrid@joseschz.com",
+      from: "josesansalt@joseschz.com",
       subject: "New Message from Contact Form",
       text: msg,
       html: msg.replace(/\r\n/g, "<br>"),

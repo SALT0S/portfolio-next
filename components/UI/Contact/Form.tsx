@@ -100,7 +100,7 @@ export const Form = () => {
       />
 
       <button
-        className=" mt-4 w-full rounded-md bg-black py-3 px-5 text-lg text-white outline-none hover:bg-zinc-800 disabled:cursor-not-allowed disabled:bg-opacity-60 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+        className="mt-4 w-full rounded-md bg-black py-3 px-5 text-lg text-white outline-none hover:bg-zinc-800 disabled:cursor-not-allowed disabled:bg-opacity-60 dark:bg-zinc-900 dark:hover:bg-zinc-800"
         type="submit"
         disabled={loading}
       >
