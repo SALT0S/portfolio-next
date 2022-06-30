@@ -22,6 +22,7 @@ export const Footer = () => {
               <a
                 key={index}
                 href={social.link}
+                aria-label={social.label}
                 target="_blank"
                 rel="noopener noreferrer"
               >
