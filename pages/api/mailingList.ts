@@ -9,6 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  res.setHeader("Cache-Control", "s-maxage=10");
   const email = req.body.mail;
   const url = `https://api.sendgrid.com/v3/marketing/contacts`;
 

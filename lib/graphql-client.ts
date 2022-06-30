@@ -1,4 +1,5 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient } from "@apollo/client";
+import { InMemoryCache } from "@apollo/client";
 
 export const gqlClient = new ApolloClient({
   uri: process.env.STRAPI_GRAPHQL_URL,

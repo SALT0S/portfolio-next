@@ -18,7 +18,8 @@ export const ContactSection = () => {
         <Image
           src={ImageContact}
           layout="responsive"
-          objectFit="cover"
+          sizes="50vw"
+          loading="lazy"
           alt="Contact image"
           placeholder="blur"
         />

@@ -11,6 +11,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  res.setHeader("Cache-Control", "s-maxage=10");
   if (req.method === "POST") {
     const {
       name,

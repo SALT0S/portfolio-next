@@ -11,7 +11,8 @@ export const AboutSection = () => {
             <Image
               src={AboutImg}
               layout="responsive"
-              objectFit="cover"
+              sizes="50vw"
+              loading="lazy"
               alt="About image"
               placeholder="blur"
             />

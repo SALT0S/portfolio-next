@@ -11,7 +11,7 @@ export const ActiveLink: React.FC<Props> = ({ text, href, className }) => {
   const router = useRouter();
   return (
     <li className={className}>
-      <Link href={href} passHref>
+      <Link href={href} passHref prefetch={false}>
         <a className={router.pathname === href ? "active" : ""}>{text}</a>
       </Link>
     </li>

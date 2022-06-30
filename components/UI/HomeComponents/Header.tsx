@@ -1,4 +1,4 @@
-import LogoTuco from "../complements/LogoTuco";
+import SvgComponent from "../SvgComponent";
 
 export const HeaderSection = () => {
   return (
@@ -14,7 +14,8 @@ export const HeaderSection = () => {
           </p>
         </div>
       </div>
-      <LogoTuco />
+
+      <SvgComponent />
     </section>
   );
 };

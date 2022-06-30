@@ -64,7 +64,6 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
                   width={112}
                   height={112}
                   loading="lazy"
-                  objectFit="cover"
                   sizes="(max-width: 767px) 112px"
                   className="rounded-full"
                 />

@@ -1,6 +1,7 @@
-import type { NextPage, GetStaticProps } from "next";
+import { NextPage, GetStaticProps } from "next";
 
 import { Layout } from "../components/Layout";
+
 import {
   HeaderSection,
   ProjectSection,
@@ -18,6 +19,7 @@ import {
   SkillData,
   IPost,
 } from "../interfaces";
+
 import { gqlClient } from "../lib/graphql-client";
 import {
   GET_ALL_FEATURED_POSTS,
@@ -34,7 +36,6 @@ interface Props {
 const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
   return (
     <Layout>
-      {/* container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8 */}
       <HeaderSection />
       <ProjectSection projects={projects} />
       <SkillSection skills={skills} />
