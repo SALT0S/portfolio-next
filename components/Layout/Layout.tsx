@@ -21,9 +21,9 @@ export const Layout: React.FC<Props> = ({
 
       <Navbar />
 
-      <main>{children}</main>
+      <main className="mb-14">{children}</main>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
