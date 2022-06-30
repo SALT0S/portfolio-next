@@ -1,13 +1,20 @@
 import Image from "next/image";
 import { LinkButton } from "../Button";
-import Astronaut from "/public/static/gif/Astronaut.gif";
+import AboutImg from "../../../public/static/img/AboutImg.png";
+
 export const AboutSection = () => {
   return (
     <section>
       <div className="bg-dark bg-black text-center dark:bg-zinc-900">
         <div className="container mx-auto max-w-[1540px] px-4 sm:px-6 md:grid md:grid-cols-5 lg:px-8">
           <div className="md:col-span-3">
-            <Image src={Astronaut} layout="responsive" alt="Astronaut gif" />
+            <Image
+              src={AboutImg}
+              layout="responsive"
+              objectFit="cover"
+              alt="About image"
+              placeholder="blur"
+            />
           </div>
 
           <div className="self-center md:col-span-2">

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { LinkButton } from "../Button";
-import CatGif from "/public/static/gif/CatGif.gif";
+import ImageContact from "../../../public/static/img/ContactImg.png";
 
 export const ContactSection = () => {
   return (
@@ -15,7 +15,13 @@ export const ContactSection = () => {
         <LinkButton url="/contact" text="Contact me" />
       </div>
       <div className="h-2/4 md:w-3/4">
-        <Image src={CatGif} layout="responsive" alt="Cat Gif" />
+        <Image
+          src={ImageContact}
+          layout="responsive"
+          objectFit="cover"
+          alt="Contact image"
+          placeholder="blur"
+        />
       </div>
     </section>
   );
