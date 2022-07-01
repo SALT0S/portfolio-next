@@ -14,7 +14,7 @@ export const ProjectSection: React.FC<Props> = ({ projects }) => {
       </div>
 
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        <ProjectCard projects={projects} />
+        <ProjectCard priority={false} projects={projects} />
       </div>
 
       <div className="mt-10">

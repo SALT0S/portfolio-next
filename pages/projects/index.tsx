@@ -20,7 +20,7 @@ const HomeProjectPage: NextPage<Props> = ({ projects }) => {
         </div>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <ProjectCard projects={projects} />
+          <ProjectCard priority={true} projects={projects} />
         </div>
       </section>
     </Layout>
