@@ -46,6 +46,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
                   objectPosition="top"
                   sizes="(max-width: 728px) 100vw, (max-width: 992px) 728px, (max-width: 1200px) 992px, 1200px"
                   className="rounded-full"
+                  priority={true}
                 />
               </div>
             </div>
