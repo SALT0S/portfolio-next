@@ -46,7 +46,7 @@ const ContactPage: NextPage = () => {
           <article>
             <h2 className="my-5 text-lg font-bold">About Me</h2>
             <p className="my-4">
-              I was born in Manabí - Portoviejo, since I was a kid I was always
+              I was born in Manabi - Portoviejo, since I was a kid I was always
               interested in technology, but it was not until I was 8 years old
               that I had my first computer and it was the first time I tried the
               internet. <LinkButton url="/about-me" text="Read more" />

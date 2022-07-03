@@ -24,7 +24,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
             alt={post.title}
             layout="fill"
             objectFit="cover"
-            sizes="(max-width: 640px) 100vw, 640px"
+            sizes="(max-width: 728px) 100vw, (max-width: 992px) 728px, (max-width: 1200px) 992px, 1200px"
             priority={true}
           />
         </div>
@@ -44,7 +44,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
                   layout="fill"
                   objectFit="cover"
                   objectPosition="top"
-                  sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 100vw"
+                  sizes="(max-width: 728px) 100vw, (max-width: 992px) 728px, (max-width: 1200px) 992px, 1200px"
                   className="rounded-full"
                 />
               </div>
