@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { LinkButton } from "../Button";
 import ImageContact from "../../../public/static/img/ContactImg.png";
+import { LinkButton } from "../Button";
 
 export const ContactSection = () => {
   return (

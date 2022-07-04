@@ -1,11 +1,9 @@
-import { Fragment, useState, useEffect } from "react";
+import { Popover, Switch, Transition } from "@headlessui/react";
 import { useTheme } from "next-themes";
-
-import { Popover, Transition, Switch } from "@headlessui/react";
+import { Fragment, useEffect, useState } from "react";
 import { HiX } from "react-icons/hi";
-
+import { MenuNav } from "../Constants";
 import { ActiveLink } from "./ActiveLink";
-import MenuNav from "../constants/MenuNav";
 
 export const MobileBar = () => {
   const { theme, setTheme } = useTheme();

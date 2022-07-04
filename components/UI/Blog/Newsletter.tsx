@@ -1,5 +1,5 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 import { RiLoader5Fill } from "react-icons/ri";
 
 const Newsletter = () => {

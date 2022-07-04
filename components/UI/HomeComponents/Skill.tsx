@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { SkillData } from "../../../interfaces";
-
-// Carousel
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SkillData } from "../../../interfaces";
 
 interface SkillsProps {
   skills: SkillData[];

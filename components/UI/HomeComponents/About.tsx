@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { LinkButton } from "../Button";
 import AboutImg from "../../../public/static/img/AboutImg.png";
+import { LinkButton } from "../Button";
 
 export const AboutSection = () => {
   return (

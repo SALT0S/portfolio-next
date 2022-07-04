@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-
 import { Layout } from "../components/Layout";
 import { LinkButton } from "../components/UI";
 

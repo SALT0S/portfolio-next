@@ -1,31 +1,27 @@
-import { NextPage, GetStaticProps } from "next";
-
+import { GetStaticProps, NextPage } from "next";
 import { Layout } from "../components/Layout";
-
 import {
+  AboutSection,
+  BlogSection,
+  ContactSection,
   HeaderSection,
   ProjectSection,
   SkillSection,
-  BlogSection,
-  AboutSection,
-  ContactSection,
 } from "../components/UI";
-
-import {
-  IProjects,
-  ISkill,
-  IPosts,
-  IProject,
-  SkillData,
-  IPost,
-} from "../interfaces";
-
-import { gqlClient } from "../lib/graphql-client";
 import {
   GET_ALL_FEATURED_POSTS,
   GET_ALL_FEATURED_PROJECTS,
   GET_ALL_SKILLS,
 } from "../graphql/queries";
+import {
+  IPost,
+  IPosts,
+  IProject,
+  IProjects,
+  ISkill,
+  SkillData,
+} from "../interfaces";
+import { gqlClient } from "../lib/graphql-client";
 
 interface Props {
   projects: IProject[];

@@ -1,17 +1,14 @@
 import type { NextPage } from "next";
-
-import contactData from "../components/constants/ContactData";
-
-// Components
+import { ContactData } from "../components/Constants";
 import { Layout } from "../components/Layout";
-import { LinkButton, Form } from "../components/UI";
+import { Form, LinkButton } from "../components/UI";
 
 const ContactPage: NextPage = () => {
   return (
     <Layout>
       <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
-          {contactData.map((data, index) => (
+          {ContactData.map((data, index) => (
             <div key={index} className="content">
               <a
                 href={data.link}

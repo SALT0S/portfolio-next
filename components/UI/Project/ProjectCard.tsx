@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-
-import { MdOutlineScreenShare } from "react-icons/Md";
 import { AiFillGithub } from "react-icons/ai";
-
+import { MdOutlineScreenShare } from "react-icons/Md";
 import { ProjectsData } from "../../../interfaces";
 
 interface Props {

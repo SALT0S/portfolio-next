@@ -1,9 +1,7 @@
-import type { NextPage, GetStaticProps } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
-
 import { Layout } from "../components/Layout/Layout";
 import { GET_ALL_ABOUT } from "../graphql/queries";
-
 import { IAbout } from "../interfaces";
 import { gqlClient } from "../lib/graphql-client";
 

@@ -1,4 +1,4 @@
-const LinksV2 = [
+export const Navigation = [
   {
     title: "Rapid links",
     Links: [
@@ -28,5 +28,3 @@ const LinksV2 = [
     ],
   },
 ];
-
-export default LinksV2;

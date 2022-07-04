@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { useTheme } from "next-themes";
-
 import { Popover, Switch } from "@headlessui/react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-
+import { MenuNav } from "../Constants";
 import { ActiveLink } from "./ActiveLink";
-import MenuNav from "../constants/MenuNav";
 
 export const DesktopBar = () => {
   const { theme, setTheme } = useTheme();

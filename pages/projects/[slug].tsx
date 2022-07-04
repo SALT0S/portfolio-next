@@ -1,15 +1,11 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
-
 import { AiFillGithub } from "react-icons/ai";
 import { MdOutlineScreenShare } from "react-icons/Md";
-
 import { Layout } from "../../components/Layout";
-
-import { gqlClient } from "../../lib/graphql-client";
+import { GET_ALL_PROJECTS, GET_PROJECT } from "../../graphql/queries";
 import { IProject, IProjects } from "../../interfaces";
-
-import { GET_PROJECT, GET_ALL_PROJECTS } from "../../graphql/queries";
+import { gqlClient } from "../../lib/graphql-client";
 
 interface PostsProps {
   project: IProject;

@@ -1,12 +1,9 @@
-import type { NextPage, GetStaticProps } from "next";
-
+import type { GetStaticProps, NextPage } from "next";
 import { Layout } from "../../components/Layout";
 import { ProjectCard } from "../../components/UI/Project";
-
-import { gqlClient } from "../../lib/graphql-client";
 import { GET_ALL_PROJECTS } from "../../graphql/queries";
-
-import { IProjects, IProject } from "../../interfaces";
+import { IProject, IProjects } from "../../interfaces";
+import { gqlClient } from "../../lib/graphql-client";
 
 interface Props {
   projects: IProject[];

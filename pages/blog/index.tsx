@@ -1,26 +1,20 @@
-import type { NextPage, GetStaticProps } from "next";
-
-import { Suspense } from "react";
+import type { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
-
-// components
+import { Suspense } from "react";
 import { Layout } from "../../components/Layout/Layout";
+import { FeaturedPost, PostCard } from "../../components/UI/Blog";
+import {
+  GET_ALL_FEATURED_POSTS,
+  GET_ALL_UNFEATURED_POSTS,
+} from "../../graphql/queries";
+import { IPost, IPosts } from "../../interfaces";
+import { gqlClient } from "../../lib/graphql-client";
 const DynamicNewsletter = dynamic(
   () => import("../../components/UI/Blog/Newsletter"),
   {
     suspense: true,
   }
 );
-
-import { FeaturedPost, PostCard } from "../../components/UI/Blog";
-
-// interfaces
-import { IPosts, IPost } from "../../interfaces";
-import { gqlClient } from "../../lib/graphql-client";
-import {
-  GET_ALL_UNFEATURED_POSTS,
-  GET_ALL_FEATURED_POSTS,
-} from "../../graphql/queries";
 
 interface Props {
   postsFeatured: IPost[];

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { RiLoader5Fill } from "react-icons/ri";
-
 import { validate } from "../../../utils/validate";
 import Input from "./Input";
 import TextArea from "./TextArea";

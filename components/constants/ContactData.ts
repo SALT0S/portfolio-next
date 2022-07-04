@@ -1,7 +1,7 @@
 import { AiTwotoneMail } from "react-icons/ai";
-import { FaPhone, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaPhone } from "react-icons/fa";
 
-const social = [
+export const ContactData = [
   {
     title: "josesansalt@gmail.com",
     link: "mailto:josesansalt@gmail.com",
@@ -18,4 +18,3 @@ const social = [
     icon: FaLinkedin,
   },
 ];
-export default social;

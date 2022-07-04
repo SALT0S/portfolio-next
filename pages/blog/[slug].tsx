@@ -1,22 +1,18 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Suspense } from "react";
-import dynamic from "next/dynamic";
-
 import { Layout } from "../../components/Layout";
-
+import { GET_ALL_POSTS, GET_POST } from "../../graphql/queries";
+import { IPost, IPosts } from "../../interfaces";
+import { toDate } from "../../lib/format-date";
+import { gqlClient } from "../../lib/graphql-client";
 const DynamicNewsletter = dynamic(
   () => import("../../components/UI/Blog/Newsletter"),
   {
     suspense: true,
   }
 );
-
-import { toDate } from "../../lib/format-date";
-import { gqlClient } from "../../lib/graphql-client";
-import { IPost, IPosts } from "../../interfaces";
-
-import { GET_POST, GET_ALL_POSTS } from "../../graphql/queries";
 
 interface PostsProps {
   post: IPost;

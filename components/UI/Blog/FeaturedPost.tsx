@@ -1,10 +1,7 @@
 import Image from "next/image";
-
-// Carousel
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 import { IPost } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
 import { LinkButton } from "../Button";
