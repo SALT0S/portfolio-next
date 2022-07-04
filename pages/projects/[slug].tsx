@@ -64,9 +64,14 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const { data: projectsData } = await gqlClient.query({
-    query: GET_ALL_PROJECTS,
-  });
+  const { data: projectsData } = await gqlClient
+    .query({
+      query: GET_ALL_PROJECTS,
+    })
+    .catch((err) => {
+      return { data: "There was an error!" };
+    });
+
   const projects: IProject[] = projectsData.projects.data.map(
     (project: IProjects) => {
       return {
