@@ -90,12 +90,16 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
 //Static props
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data: projectData } = await gqlClient.query({
-    query: GET_PROJECT,
-    variables: {
-      slug: params?.slug,
-    },
-  });
+  const { data: projectData } = await gqlClient
+    .query({
+      query: GET_PROJECT,
+      variables: {
+        slug: params?.slug,
+      },
+    })
+    .catch((err) => {
+      return { data: "There was an error!" };
+    });
 
   const project: IProject[] = projectData.projects.data[0].attributes;
 
