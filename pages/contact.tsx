@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { ContactData } from "../components/Constants";
 import { Layout } from "../components/Layout";
 import { Form, LinkButton } from "../components/UI";
@@ -6,6 +7,23 @@ import { Form, LinkButton } from "../components/UI";
 const ContactPage: NextPage = () => {
   return (
     <Layout>
+      <NextSeo
+        title="Contact"
+        description="If you are looking for my contact information you can find it here, there are my data, my email, my phone number, and my LinkedIn page, you can also contact me with a simple form that I made."
+        openGraph={{
+          url: "https://joseschz.com/contact",
+          title: "Contact | Jose Sanchez Saltos",
+          description:
+            "If you are looking for my contact information you can find it here, there are my data, my email, my phone number, and my LinkedIn page, you can also contact me with a simple form that I made.",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "Contact, Jose, Sanchez, Saltos, Software, Web Developer, Front End, Portfolio, Jose Sanchez S, Jose Sanchez Saltos",
+          },
+        ]}
+      />
       <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
           {ContactData.map((data, index) => (

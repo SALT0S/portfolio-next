@@ -1,6 +1,7 @@
 export interface IProject {
   title: string;
   slug: string;
+  seo_title: string;
   content: string;
   description: string;
   github_url: string;

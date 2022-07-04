@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { Layout } from "../../components/Layout/Layout";
@@ -23,6 +24,16 @@ interface Props {
 const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
   return (
     <Layout>
+      <NextSeo
+        title="Blog"
+        description="The purpose of this blog is to be my catharsis, to express what I feel through words and ideas that no one asked for, but it is a fun way to write and express feelings towards something or someone."
+        openGraph={{
+          url: "https://joseschz.com/blog",
+          title: "Blog | Jose Sanchez Saltos",
+          description:
+            "The purpose of this blog is to be my catharsis, to express what I feel through words and ideas that no one asked for, but it is a fun way to write and express feelings towards something or someone.",
+        }}
+      />
       <FeaturedPost posts={postsFeatured} />
 
       <PostCard posts={postsUnFeatured} />

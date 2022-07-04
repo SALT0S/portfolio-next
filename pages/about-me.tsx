@@ -18,6 +18,7 @@ const AboutPage: NextPage<Props> = ({ about }) => {
         description={about.description}
         openGraph={{
           type: "profile",
+          url: "https://joseschz.com/about-me",
           title: "About | Jose Sanchez Saltos",
           description: about.description,
           profile: {

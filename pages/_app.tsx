@@ -31,6 +31,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
           site_name: "Jose Sanchez S",
         }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "Jose, Sanchez, Saltos, Software, Web Developer, Front End, Portfolio, Jose Sanchez S, Jose Sanchez Saltos,",
+          },
+        ]}
         twitter={{
           handle: "@Jose_schzs",
           cardType: "summary_large_image",

@@ -32,6 +32,7 @@ export const GET_ALL_PROJECTS = gql`
         attributes {
           title
           slug
+          seo_title
           description
           github_url
           page_url
@@ -57,6 +58,7 @@ export const GET_PROJECT = gql`
         attributes {
           title
           slug
+          seo_title
           description
           content
           github_url

@@ -5,6 +5,7 @@ export interface IProjects {
 export interface ProjectsData {
   title: string;
   slug: string;
+  seo_title: string;
   description: string;
   github_url: string;
   page_url: string;

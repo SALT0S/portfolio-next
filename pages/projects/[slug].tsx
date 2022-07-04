@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import { MdOutlineScreenShare } from "react-icons/md";
@@ -14,6 +15,29 @@ interface PostsProps {
 const ProjectPage: React.FC<PostsProps> = ({ project }) => {
   return (
     <Layout>
+      <NextSeo
+        title={project.seo_title}
+        description={project.description}
+        openGraph={{
+          url: `https://joseschz.com/${project.slug}`,
+          title: `${project.seo_title} | Jose Sanchez Saltos`,
+          description: project.description,
+          images: [
+            {
+              url: project.image.data.attributes.url,
+              width: 1200,
+              height: 630,
+              alt: project.title,
+            },
+          ],
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: `${project.seo_title}, Html, Css, Javascript, Nextjs, React, Jose, Sanchez, Saltos, Software, Web Developer, Front End, Portfolio, Jose Sanchez S, Jose Sanchez Saltos`,
+          },
+        ]}
+      />
       <div className="container mx-auto my-10 grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8 ">
         <div className="relative">
           <Image

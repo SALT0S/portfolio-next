@@ -27,11 +27,11 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
         description={post.description}
         openGraph={{
           type: "article",
-          title: post.seo_title,
+          title: `${post.seo_title} | Jose Sanchez Saltos`,
           description: post.description,
           article: {
-            publishedTime: toDate(post.date),
-            modifiedTime: toDate(post.date),
+            publishedTime: post.date,
+            modifiedTime: post.date,
             section: "Blog",
           },
           images: [
@@ -43,6 +43,12 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
             },
           ],
         }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: `${post.seo_title}, Blog, Jose, Sanchez, Saltos, Software, Web Developer, Front End, Portfolio, Jose Sanchez S, Jose Sanchez Saltos`,
+          },
+        ]}
       />
       <div className="container mx-auto my-10 grid max-w-7xl px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div className="relative h-96 md:h-[540px] ">
