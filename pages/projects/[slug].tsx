@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
-import { MdOutlineScreenShare } from "react-icons/Md";
+import { MdOutlineScreenShare } from "react-icons/md";
 import { Layout } from "../../components/Layout";
 import { GET_ALL_PROJECTS, GET_PROJECT } from "../../graphql/queries";
 import { IProject, IProjects } from "../../interfaces";
