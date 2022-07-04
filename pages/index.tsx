@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import { Layout } from "../components/Layout";
 import {
   AboutSection,
@@ -32,6 +33,7 @@ interface Props {
 const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
   return (
     <Layout>
+      <NextSeo />
       <HeaderSection />
       <ProjectSection projects={projects} />
       <SkillSection skills={skills} />

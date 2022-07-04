@@ -11,7 +11,7 @@ interface Props {
 
 const AboutPage: NextPage<Props> = ({ about }) => {
   return (
-    <Layout title="About Me">
+    <Layout>
       <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <article>
           <h1 className="text-7xl font-semibold leading-snug">
