@@ -10,7 +10,7 @@ interface PostsProps {
 
 export const PostCard: React.FC<PostsProps> = ({ posts }) => {
   return (
-    <>
+    <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
       {posts.map((post) => (
         <div
           key={post.slug}
@@ -45,6 +45,6 @@ export const PostCard: React.FC<PostsProps> = ({ posts }) => {
           </Link>
         </div>
       ))}
-    </>
+    </section>
   );
 };

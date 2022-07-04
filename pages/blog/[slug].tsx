@@ -4,14 +4,15 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 
 import { Layout } from "../../components/Layout";
+
 const DynamicNewsletter = dynamic(
   () => import("../../components/UI/Blog/Newsletter"),
   {
     suspense: true,
   }
 );
-import { toDate } from "../../lib/format-date";
 
+import { toDate } from "../../lib/format-date";
 import { gqlClient } from "../../lib/graphql-client";
 import { IPost, IPosts } from "../../interfaces";
 
@@ -74,7 +75,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
         />
         <div className="absolute left-0">Share It</div>
       </div>
-      <Suspense fallback={`Loading...`}>
+      <Suspense fallback={``}>
         <DynamicNewsletter />
       </Suspense>
     </Layout>

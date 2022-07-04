@@ -29,15 +29,11 @@ interface Props {
 const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
   return (
     <Layout>
-      <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <FeaturedPost posts={postsFeatured} />
-      </section>
+      <FeaturedPost posts={postsFeatured} />
 
-      <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <PostCard posts={postsUnFeatured} />
-      </section>
+      <PostCard posts={postsUnFeatured} />
 
-      <Suspense fallback={`Loading...`}>
+      <Suspense fallback={``}>
         <DynamicNewsletter />
       </Suspense>
     </Layout>
