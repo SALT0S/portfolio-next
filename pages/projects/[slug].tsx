@@ -68,8 +68,12 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
     .query({
       query: GET_ALL_PROJECTS,
     })
+    .then((res) => {
+      return res;
+    })
     .catch((err) => {
-      return { data: "There was an error!" };
+      console.log(err, "error on your side");
+      return err;
     });
 
   const projects: IProject[] = projectsData.projects.data.map(
@@ -97,12 +101,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         slug: params?.slug,
       },
     })
+    .then((res) => {
+      return res;
+    })
     .catch((err) => {
-      return { data: "There was an error!" };
+      console.log(err, "error on your side");
+      return err;
     });
 
   const project: IProject[] = projectData.projects.data[0].attributes;
-
   return {
     props: { project },
   };
