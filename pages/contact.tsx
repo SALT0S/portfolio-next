@@ -1,47 +1,31 @@
 import type { NextPage } from "next";
 
-// Icons
-import { AiTwotoneMail } from "react-icons/ai";
-import { FaPhone, FaLinkedin } from "react-icons/fa";
+import contactData from "../components/constants/ContactData";
 
 // Components
 import { Layout } from "../components/Layout";
-import { Form, LinkButton } from "../components/UI";
+import { LinkButton, Form } from "../components/UI";
 
 const ContactPage: NextPage = () => {
   return (
     <Layout>
       <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
-          <div>
-            <a
-              href="mailto:josesansalt@gmail.com"
-              rel="noopener noreferrer"
-              className="flex gap-8 p-3 hover:bg-gray-100 dark:hover:bg-zinc-900"
-            >
-              <AiTwotoneMail className="h-7 w-7 self-center" />
-              <p className="text-lg">josesansalt@gmail.com</p>
-            </a>
-            <hr />
-            <a
-              href="tel:593 983595470"
-              rel="noopener noreferrer"
-              className="flex gap-8 p-3 hover:bg-gray-100 dark:hover:bg-zinc-900"
-            >
-              <FaPhone className="h-7 w-7 self-center" />
-              <p className="text-lg">+593 98 359 5470</p>
-            </a>
-            <hr />
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/sanchez-saltos-j/"
-              rel="noopener noreferrer"
-              className="flex gap-8 p-3 hover:bg-gray-100 dark:hover:bg-zinc-900"
-            >
-              <FaLinkedin className="h-7 w-7 self-center" />
-              <p className="text-lg">LinkedIn</p>
-            </a>
-          </div>
+          {contactData.map((data, index) => (
+            <div key={index} className="content">
+              <a
+                href={data.link}
+                aria-label={data.title}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-8 p-3 hover:bg-gray-100 dark:hover:bg-zinc-900"
+              >
+                <data.icon className="h-7 w-7 self-center" aria-hidden="true" />
+                <p className="text-lg">{data.title}</p>
+              </a>
+              <hr />
+            </div>
+          ))}
 
           <article>
             <h2 className="my-5 text-lg font-bold">About Me</h2>
@@ -56,6 +40,7 @@ const ContactPage: NextPage = () => {
 
         <div>
           <h1 className="mb-4 text-lg font-bold">Contact Me</h1>
+
           <Form />
         </div>
       </section>

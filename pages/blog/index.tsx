@@ -1,8 +1,18 @@
 import type { NextPage, GetStaticProps } from "next";
 
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+
 // components
 import { Layout } from "../../components/Layout/Layout";
-import { FeaturedPost, PostCard, Newsletter } from "../../components/UI/Blog";
+const DynamicNewsletter = dynamic(
+  () => import("../../components/UI/Blog/Newsletter"),
+  {
+    suspense: true,
+  }
+);
+
+import { FeaturedPost, PostCard } from "../../components/UI/Blog";
 
 // interfaces
 import { IPosts, IPost } from "../../interfaces";
@@ -26,7 +36,10 @@ const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
       <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
         <PostCard posts={postsUnFeatured} />
       </section>
-      <Newsletter />
+
+      <Suspense fallback={`Loading...`}>
+        <DynamicNewsletter />
+      </Suspense>
     </Layout>
   );
 };

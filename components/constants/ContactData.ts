@@ -1,15 +1,21 @@
-const ContactData = [
+import { AiTwotoneMail } from "react-icons/ai";
+import { FaPhone, FaLinkedin } from "react-icons/fa";
+
+const social = [
   {
-    Email: {
-      href: "josesansalt@gmail.com",
-    },
-    Number: {
-      href: "593 983595470",
-    },
-    LinkedIn: {
-      href: "https://www.linkedin.com/in/sanchez-saltos-j/",
-    },
+    title: "josesansalt@gmail.com",
+    link: "mailto:josesansalt@gmail.com",
+    icon: AiTwotoneMail,
+  },
+  {
+    title: "+593 98 359 5470",
+    link: "tel:593 983595470",
+    icon: FaPhone,
+  },
+  {
+    title: "linkedin",
+    link: "https://www.linkedin.com/in/sanchez-saltos-j/",
+    icon: FaLinkedin,
   },
 ];
-
-export default ContactData;
+export default social;

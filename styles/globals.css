@@ -31,6 +31,9 @@
   article.text-post blockquote i strong {
     @apply text-2xl text-red-500 dark:text-red-500;
   }
+  .content:last-of-type hr {
+    @apply hidden;
+  }
 }
 
 html,

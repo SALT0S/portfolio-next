@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { RiLoader5Fill } from "react-icons/ri";
 
-export const Newsletter = () => {
+const Newsletter = () => {
   const [mail, setMail] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<boolean>();
@@ -84,3 +84,5 @@ export const Newsletter = () => {
     </section>
   );
 };
+
+export default Newsletter;

@@ -1,8 +1,15 @@
 import { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 
 import { Layout } from "../../components/Layout";
-import { Newsletter } from "../../components/UI/Blog";
+const DynamicNewsletter = dynamic(
+  () => import("../../components/UI/Blog/Newsletter"),
+  {
+    suspense: true,
+  }
+);
 import { toDate } from "../../lib/format-date";
 
 import { gqlClient } from "../../lib/graphql-client";
@@ -24,7 +31,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
             alt={post.title}
             layout="fill"
             objectFit="cover"
-            sizes="(max-width: 728px) 100vw, (max-width: 992px) 728px, (max-width: 1200px) 992px, 1200px"
+            sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 100vw"
             priority={true}
           />
         </div>
@@ -67,7 +74,9 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
         />
         <div className="absolute left-0">Share It</div>
       </div>
-      <Newsletter />
+      <Suspense fallback={`Loading...`}>
+        <DynamicNewsletter />
+      </Suspense>
     </Layout>
   );
 };
