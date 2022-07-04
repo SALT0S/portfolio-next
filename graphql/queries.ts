@@ -222,6 +222,8 @@ export const GET_POST = gql`
             data {
               attributes {
                 url
+                width
+                height
               }
             }
           }
@@ -231,6 +233,8 @@ export const GET_POST = gql`
               data {
                 attributes {
                   url
+                  width
+                  height
                 }
               }
             }

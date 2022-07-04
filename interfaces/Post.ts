@@ -26,4 +26,6 @@ export interface ImageDataPost {
 
 export interface DataAttributesPost {
   url: string;
+  width: number;
+  height: number;
 }

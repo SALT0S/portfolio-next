@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import { Layout } from "../components/Layout/Layout";
 import { GET_ALL_ABOUT } from "../graphql/queries";
@@ -12,6 +13,29 @@ interface Props {
 const AboutPage: NextPage<Props> = ({ about }) => {
   return (
     <Layout>
+      <NextSeo
+        title="About"
+        description={about.description}
+        openGraph={{
+          type: "profile",
+          title: "About | Jose Sanchez Saltos",
+          description: about.description,
+          profile: {
+            firstName: "Jose",
+            lastName: "Sanchez Saltos",
+            username: "joseschz",
+            gender: "male",
+          },
+          images: [
+            {
+              url: about.author.image.data.attributes.url,
+              width: about.author.image.data.attributes.width,
+              height: about.author.image.data.attributes.height,
+              alt: about.author.author_title,
+            },
+          ],
+        }}
+      />
       <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <article>
           <h1 className="text-7xl font-semibold leading-snug">

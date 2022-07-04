@@ -33,7 +33,12 @@ interface Props {
 const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
   return (
     <Layout>
-      <NextSeo />
+      <NextSeo
+        title="Jose Sanchez Saltos | Portfolio"
+        openGraph={{
+          title: "Jose Sanchez Saltos | Portfolio",
+        }}
+      />
       <HeaderSection />
       <ProjectSection projects={projects} />
       <SkillSection skills={skills} />

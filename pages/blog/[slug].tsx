@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Suspense } from "react";
@@ -21,6 +22,28 @@ interface PostsProps {
 const PostPage: React.FC<PostsProps> = ({ post }) => {
   return (
     <Layout>
+      <NextSeo
+        title={post.seo_title}
+        description={post.description}
+        openGraph={{
+          type: "article",
+          title: post.seo_title,
+          description: post.description,
+          article: {
+            publishedTime: toDate(post.date),
+            modifiedTime: toDate(post.date),
+            section: "Blog",
+          },
+          images: [
+            {
+              url: post.image.data.attributes.url,
+              width: post.image.data.attributes.width,
+              height: post.image.data.attributes.height,
+              alt: post.title,
+            },
+          ],
+        }}
+      />
       <div className="container mx-auto my-10 grid max-w-7xl px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div className="relative h-96 md:h-[540px] ">
           <Image
