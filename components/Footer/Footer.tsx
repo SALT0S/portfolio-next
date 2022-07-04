@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Navigation, Social } from "../Constants/index";
+import { Navigation } from "../Constants/Navigation";
+import { Social } from "../Constants/Social";
 
 export const Footer = () => {
   return (
