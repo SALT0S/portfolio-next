@@ -37,8 +37,8 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
           images: [
             {
               url: post.image.data.attributes.url,
-              width: post.image.data.attributes.width,
-              height: post.image.data.attributes.height,
+              width: 1200,
+              height: 630,
               alt: post.title,
             },
           ],

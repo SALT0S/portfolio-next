@@ -64,18 +64,9 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const { data: projectsData } = await gqlClient
-    .query({
-      query: GET_ALL_PROJECTS,
-    })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => {
-      console.log(err, "error on your side");
-      return err;
-    });
-
+  const { data: projectsData } = await gqlClient.query({
+    query: GET_ALL_PROJECTS,
+  });
   const projects: IProject[] = projectsData.projects.data.map(
     (project: IProjects) => {
       return {
@@ -94,22 +85,15 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
 //Static props
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data: projectData } = await gqlClient
-    .query({
-      query: GET_PROJECT,
-      variables: {
-        slug: params?.slug,
-      },
-    })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => {
-      console.log(err, "error on your side");
-      return err;
-    });
+  const { data: projectData } = await gqlClient.query({
+    query: GET_PROJECT,
+    variables: {
+      slug: params?.slug,
+    },
+  });
 
   const project: IProject[] = projectData.projects.data[0].attributes;
+
   return {
     props: { project },
   };
