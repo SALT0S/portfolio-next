@@ -39,7 +39,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
               url: post.image.data.attributes.url,
               width: 1200,
               height: 630,
-              alt: post.title,
+              alt: post.seo_title,
             },
           ],
         }}
@@ -100,7 +100,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
         />
         <div className="absolute left-0">Share It</div>
       </div>
-      <Suspense fallback={``}>
+      <Suspense fallback={<p>Loading...</p>}>
         <DynamicNewsletter />
       </Suspense>
     </Layout>

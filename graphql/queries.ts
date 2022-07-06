@@ -207,6 +207,18 @@ export const GET_ALL_POSTS = gql`
   }
 `;
 
+export const GET_ALL_POSTS_SLUG = gql`
+  query getPosts {
+    posts {
+      data {
+        attributes {
+          slug
+        }
+      }
+    }
+  }
+`;
+
 export const GET_POST = gql`
   query getPost($slug: String!) {
     posts(filters: { slug: { eq: $slug } }) {
