@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { RiLoader5Fill } from "react-icons/ri";
 import { validate } from "../../../utils/validate";
@@ -31,24 +32,27 @@ export const Form = () => {
     }
     setErrors({});
     setLoading(true);
-    try {
-      const res = await fetch("/api/mail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
+    axios
+      .post("/api/mail", {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setValues({ name: "", email: "", message: "" });
+          setLoading(false);
+          setSuccess(true);
+          setMessageState(res.data.message);
+        } else {
+          setLoading(false);
+          setMessageState(res.data.message);
+        }
+      })
+      .catch((err) => {
+        setLoading(false);
+        setMessageState(String(err.message));
       });
-      if (res.status === 200) {
-        setValues({ name: "", email: "", message: "" });
-        setSuccess(true);
-      } else {
-        setMessageState("Something went wrong, please try again later.");
-      }
-    } catch (err) {
-      console.log(err);
-      setMessageState(String(err));
-    }
     setLoading(false);
   };
 
