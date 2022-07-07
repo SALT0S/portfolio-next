@@ -10,10 +10,10 @@ type Props = {
 export const ActiveLink: React.FC<Props> = ({ text, href, className }) => {
   const router = useRouter();
   return (
-    <li className={className}>
-      <Link href={href} passHref prefetch={false}>
+    <Link href={href} prefetch={false}>
+      <li className={className}>
         <a className={router.pathname === href ? "active" : ""}>{text}</a>
-      </Link>
-    </li>
+      </li>
+    </Link>
   );
 };
