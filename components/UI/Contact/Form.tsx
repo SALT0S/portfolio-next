@@ -117,7 +117,7 @@ export const Form = () => {
       </button>
       <p className="mt-5 text-green-500 dark:text-green-500">
         {success !== false ? (
-          "Your message was sent successfully."
+          messageState
         ) : (
           <span className="text-red-500 dark:text-red-500">{messageState}</span>
         )}
