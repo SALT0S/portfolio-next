@@ -7,11 +7,10 @@ type Data = {
   success: boolean;
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.setHeader("Cache-Control", "s-maxage=10");
   if (req.method === "POST") {
     const {
       name,
@@ -24,13 +23,13 @@ export default function handler(
     const data = {
       to: "josesansalt@gmail.com",
       from: "josesansalt@joseschz.com",
-      subject: "New Message from Contact Form",
-      text: msg,
+      subject: `${name.toUpperCase()} sent you a message from Contact Form`,
+      text: `Email => ${email}`,
       html: msg.replace(/\r\n/g, "<br>"),
     };
 
     try {
-      sgMail.send(data);
+      await sgMail.send(data);
       res.status(200).json({ success: true });
     } catch (err) {
       res.status(500).json({ success: false });
