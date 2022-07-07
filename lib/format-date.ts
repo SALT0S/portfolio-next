@@ -1,7 +1,5 @@
-import { format } from "date-fns";
+import moment from "moment";
 
 export const toDate = (date: string): string => {
-  const dateObj = new Date(date);
-  const formattedDate = format(dateObj, "MMMM d, yyyy");
-  return formattedDate;
+  return moment(date).format("MMMM Do YYYY");
 };
