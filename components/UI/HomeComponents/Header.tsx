@@ -3,7 +3,6 @@ import { Suspense } from "react";
 
 const DynamicSvgComponent = dynamic(() => import("../SvgComponent"), {
   suspense: true,
-  ssr: false,
 });
 
 export const HeaderSection = () => {
