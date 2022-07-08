@@ -22,7 +22,7 @@ export const Social = [
     icon: AiFillFacebook,
   },
   {
-    link: "https://twitter.com/Saltos_Sn",
+    link: "https://twitter.com/jose_schzs",
     label: "Twitter",
     icon: AiOutlineTwitter,
   },
