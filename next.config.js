@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
+  enabled: process.env.ANALYZE === "false",
   openAnalyzer: false,
 });
 
@@ -21,7 +21,7 @@ const securityHeaders = [
   {
     key: "Content-Security-Policy",
     value:
-      "default-src 'self' http://192.168.1.17:3000/ vitals.vercel-insights.com; frame-ancestors 'none'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;",
+      "default-src 'self' http://192.168.1.17:3000/ vitals.vercel-insights.com  https://www.google-analytics.com; frame-ancestors 'none'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com https://ssl.google-analytics.com https://www.googletagmanager.com; object-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:;",
   },
   {
     key: "X-DNS-Prefetch-Control",
