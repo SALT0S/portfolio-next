@@ -42,7 +42,7 @@ export const DesktopBar = () => {
           </div>
         </div>
 
-        <ul className="hidden md:flex md:space-x-8">
+        <ul className="mr-10 hidden md:flex md:space-x-8 lg:mr-0">
           {MenuNav.map((menu) => (
             <ActiveLink
               key={menu.name}
@@ -71,7 +71,7 @@ export const DesktopBar = () => {
               } inline-block h-4 w-4 transform rounded-full bg-white dark:bg-black`}
             />
           </Switch>
-          <p className="ml-2">
+          <p className="ml-2 md:hidden lg:block">
             {themeState === false ? "Light Mode" : "Dark Mode"}
           </p>
         </div>
