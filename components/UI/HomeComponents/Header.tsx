@@ -1,9 +1,4 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-const DynamicSvgComponent = dynamic(() => import("../SvgComponent"), {
-  suspense: true,
-});
+import { SvgComponent } from "../SvgComponent";
 
 export const HeaderSection = () => {
   return (
@@ -20,9 +15,7 @@ export const HeaderSection = () => {
         </div>
       </div>
 
-      <Suspense fallback={``}>
-        <DynamicSvgComponent />
-      </Suspense>
+      <SvgComponent />
     </section>
   );
 };

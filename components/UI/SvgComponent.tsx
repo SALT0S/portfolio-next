@@ -1,4 +1,4 @@
-const SvgComponent = () => {
+export const SvgComponent = () => {
   return (
     <div className="h-full">
       <svg
@@ -30,4 +30,3 @@ const SvgComponent = () => {
     </div>
   );
 };
-export default SvgComponent;
