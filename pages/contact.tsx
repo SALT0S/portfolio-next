@@ -24,7 +24,7 @@ const ContactPage: NextPage = () => {
           },
         ]}
       />
-      <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
+      <section className="container mx-auto my-10 grid max-w-7xl gap-7 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div>
           {ContactData.map((data, index) => (
             <div key={index} className="content">

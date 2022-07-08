@@ -24,8 +24,8 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
       >
         {posts.map((post) => (
           <SwiperSlide key={post.slug}>
-            <div className=" h-full w-full bg-gray-200 dark:bg-zinc-900 md:flex md:flex-row-reverse">
-              <div className="relative h-52 md:h-[540px] md:w-2/3">
+            <div className=" h-full w-full bg-gray-200 dark:bg-zinc-900 lg:flex lg:flex-row-reverse">
+              <div className="relative h-52 md:h-80 lg:h-[540px] lg:w-2/3">
                 <Image
                   src={post.image.data.attributes.url}
                   alt={post.title}
@@ -36,7 +36,7 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
                 />
               </div>
 
-              <div className="self-center p-8 text-center md:w-1/3">
+              <div className="self-center p-8 text-center md:p-16 lg:w-1/3 lg:p-8">
                 <p>{toDate(post.date)}</p>
                 <h2 className="my-7 text-3xl font-bold">
                   {post.title.length < 36
