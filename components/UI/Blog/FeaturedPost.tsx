@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Autoplay } from "swiper";
+import { Autoplay, Lazy } from "swiper";
 import "swiper/css";
+import "swiper/css/lazy";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IPost } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
@@ -20,7 +21,8 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
         }}
         spaceBetween={30}
         navigation={true}
-        modules={[Autoplay]}
+        lazy={true}
+        modules={[Autoplay, Lazy]}
       >
         {posts.map((post) => (
           <SwiperSlide key={post.slug}>
@@ -33,6 +35,7 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
                   sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, (max-width: 1215px) 33vw, (max-width: 1599px) 25vw, (max-width: 1919px) 20vw, (max-width: 2559px) 16vw, (max-width: 3839px) 12vw, (max-width: 5679px) 8vw, (max-width: 9999px) 4vw, 100vw"
                   objectFit="cover"
                   priority={true}
+                  className="swiper-lazy"
                 />
               </div>
 

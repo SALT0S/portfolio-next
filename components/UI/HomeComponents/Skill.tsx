@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Autoplay } from "swiper";
+import { Autoplay, Lazy } from "swiper";
 import "swiper/css";
+import "swiper/css/lazy";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SkillData } from "../../../interfaces";
 
@@ -54,7 +55,8 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
               slidesPerView: 5.5,
             },
           }}
-          modules={[Autoplay]}
+          lazy={true}
+          modules={[Autoplay, Lazy]}
         >
           {skills.map((skill) => (
             <SwiperSlide key={skill.id} className="text-center">
@@ -67,7 +69,7 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
                   height={112}
                   loading="lazy"
                   sizes="(max-width: 767px) 112px"
-                  className="rounded-full"
+                  className="swiper-lazy rounded-full"
                 />
               </div>
               <p className="pt-2 text-center text-lg text-white">
