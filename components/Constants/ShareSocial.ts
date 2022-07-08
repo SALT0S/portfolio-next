@@ -1,6 +1,6 @@
 import {
-  FacebookIcon,
-  FacebookShareButton,
+  EmailIcon,
+  EmailShareButton,
   LinkedinIcon,
   LinkedinShareButton,
   TwitterIcon,
@@ -11,9 +11,9 @@ import {
 
 export const ShareSocial = [
   {
-    component: FacebookShareButton,
-    label: "Facebook",
-    icon: FacebookIcon,
+    component: EmailShareButton,
+    label: "Email",
+    icon: EmailIcon,
   },
   {
     component: TwitterShareButton,
