@@ -34,6 +34,15 @@
   .content:last-of-type hr {
     @apply hidden;
   }
+  .SharePost__icon {
+    @apply mr-4 md:mb-2;
+  }
+  .SharePost__icon svg circle {
+    @apply fill-black dark:fill-zinc-800;
+  }
+  .SharePost__icon svg path {
+    @apply dark:fill-white;
+  }
 }
 
 html,

@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Suspense } from "react";
+import { ShareSocial } from "../../components/Constants";
 import { Layout } from "../../components/Layout";
 import { GET_ALL_POSTS, GET_POST } from "../../graphql/queries";
 import { IPost, IPosts } from "../../interfaces";
@@ -20,6 +21,7 @@ interface PostsProps {
 }
 
 const PostPage: React.FC<PostsProps> = ({ post }) => {
+  const shareUrl = `https://www.joseschz.com/blog/${post.slug}`;
   return (
     <Layout>
       <NextSeo
@@ -98,7 +100,20 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
           className="text-post my-4 md:text-lg"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-        <div className="absolute left-0">Share It</div>
+        <div className="container relative left-0 mx-auto max-w-7xl px-4 sm:px-6 md:absolute md:my-9 lg:px-8">
+          <p className="mb-4 text-xl font-bold dark:text-white">Share it</p>
+          {ShareSocial.map((item, index) => (
+            <item.component
+              resetButtonStyle={false}
+              type="submit"
+              url={shareUrl}
+              key={index}
+              className="SharePost__icon md:block "
+            >
+              <item.icon size={40} round={true} />
+            </item.component>
+          ))}
+        </div>
       </div>
       <Suspense fallback={<p>Loading...</p>}>
         <DynamicNewsletter />
