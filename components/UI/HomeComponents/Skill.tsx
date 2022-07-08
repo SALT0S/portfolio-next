@@ -11,7 +11,7 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
   return (
     <section>
       <svg
-        viewBox="0 0 1340 180"
+        viewBox="0 0 1340 175"
         xmlns="http://www.w3.org/2000/svg"
         className="-mb-1 w-full leading-[0]"
       >

@@ -4,7 +4,7 @@ import { LinkButton } from "../Button";
 
 export const AboutSection = () => {
   return (
-    <section className="relative mb-20 md:mb-0">
+    <section>
       <div className="bg-dark bg-black text-center dark:bg-zinc-900">
         <div className="container mx-auto max-w-[1540px] px-4 sm:px-6 md:grid md:grid-cols-5 lg:px-8">
           <div className="md:col-span-3">
@@ -35,7 +35,7 @@ export const AboutSection = () => {
         </div>
       </div>
       <svg
-        viewBox="0 0 1340 230"
+        viewBox="0 0 1300 230"
         xmlns="http://www.w3.org/2000/svg"
         className="-mt-1 w-full leading-[0]"
       >
