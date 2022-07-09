@@ -6,7 +6,6 @@ import {
   BlogSection,
   ContactSection,
   HeaderSection,
-  ProjectSection,
   SkillSection,
 } from "../components/UI";
 import {
@@ -35,7 +34,7 @@ const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
     <Layout>
       <NextSeo title="Portfolio" />
       <HeaderSection />
-      <ProjectSection projects={projects} />
+      {/* <ProjectSection projects={projects} /> */}
       <SkillSection skills={skills} />
       <BlogSection posts={posts} />
       <AboutSection />
