@@ -29,7 +29,10 @@
   }
 
   pre {
-    @apply h-96 overflow-y-auto whitespace-pre-wrap;
+    @apply h-96 overflow-x-auto overflow-y-auto whitespace-pre-wrap break-all;
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
   }
 
   p a {
