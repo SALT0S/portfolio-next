@@ -57,7 +57,11 @@ export const PostCardHome: React.FC<PostsProps> = ({ posts }) => {
 
               <article className="p-5">
                 <p className="text-sm">{toDate(post.date)}</p>
-                <h2 className="my-2 text-2xl font-semibold">{post.title}</h2>
+                <h2 className="my-2 text-2xl font-semibold">
+                  {post.title.length < 36
+                    ? `${post.title}`
+                    : `${post.title.substring(0, 36)}...`}
+                </h2>
               </article>
             </a>
           </Link>
