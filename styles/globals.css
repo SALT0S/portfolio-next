@@ -29,7 +29,11 @@
   }
 
   pre {
-    @apply whitespace-pre-wrap;
+    @apply h-96 overflow-y-auto whitespace-pre-wrap;
+  }
+
+  p a {
+    @apply text-black dark:text-white;
   }
 
   .content:last-of-type hr {
