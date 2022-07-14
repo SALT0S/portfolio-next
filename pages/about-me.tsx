@@ -48,7 +48,7 @@ const AboutPage: NextPage<Props> = ({ about }) => {
           <h2 className="my-5 text-2xl font-semibold">About Me</h2>
 
           <div
-            className="text-about text-post text-lg"
+            className="prose-lg"
             dangerouslySetInnerHTML={{
               __html: about.content,
             }}

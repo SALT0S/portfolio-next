@@ -9,6 +9,7 @@ import { GET_ALL_POSTS, GET_POST } from "../../graphql/queries";
 import { IPost, IPosts } from "../../interfaces";
 import { toDate } from "../../lib/format-date";
 import { gqlClient } from "../../lib/graphql-client";
+
 const DynamicNewsletter = dynamic(
   () => import("../../components/UI/Blog/Newsletter"),
   {
@@ -97,7 +98,7 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
 
       <div className="container mx-auto my-10 grid max-w-7xl justify-items-center gap-10 px-4 sm:px-6 md:w-1/2 md:px-0">
         <article
-          className="text-post my-4 md:text-lg"
+          className="prose lg:prose-lg"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className="container relative left-0 mx-auto max-w-7xl px-4 sm:px-6 md:absolute md:my-9 lg:px-8">

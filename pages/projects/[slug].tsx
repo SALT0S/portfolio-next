@@ -78,7 +78,7 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
           <div>technologies</div>
 
           <article
-            className="text-post my-5 md:text-lg"
+            className="prose lg:prose-lg"
             dangerouslySetInnerHTML={{ __html: project.content }}
           />
         </div>

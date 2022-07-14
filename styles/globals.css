@@ -18,19 +18,20 @@
   .active {
     @apply font-bold text-black dark:text-white;
   }
-  .text-about blockquote p {
-    @apply text-2xl text-black dark:text-white;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
-  }
-  article.text-post p strong {
+  blockquote p span {
     @apply text-black dark:text-white;
   }
-  article.text-post blockquote i strong {
-    @apply text-2xl text-red-500 dark:text-red-500;
+  p strong {
+    @apply text-black dark:text-white;
   }
+  p code {
+    @apply text-black dark:text-white;
+  }
+
+  pre {
+    @apply whitespace-pre-wrap;
+  }
+
   .content:last-of-type hr {
     @apply hidden;
   }
@@ -67,16 +68,4 @@ a {
   .projectCard {
     margin-top: 0;
   }
-}
-
-.text-post p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-article.text-post blockquote {
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 40px;
-  margin-inline-end: 40px;
 }
