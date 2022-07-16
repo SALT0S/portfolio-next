@@ -96,9 +96,9 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
         </div>
       </div>
 
-      <div className="container mx-auto my-10 grid max-w-7xl justify-items-center gap-10 px-4 sm:px-6 md:w-1/2 md:px-0">
+      <div className="container mx-auto grid max-w-7xl justify-items-center gap-10 px-4 sm:px-6 md:w-1/2 md:px-0">
         <article
-          className="prose lg:prose-lg"
+          className="prose my-8 lg:prose-lg"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className="container relative left-0 mx-auto max-w-7xl px-4 sm:px-6 md:absolute md:my-9 lg:px-8">

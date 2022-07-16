@@ -24,7 +24,7 @@ export const Navigation = [
     title: "Blog",
     Links: [
       { name: "Articles", href: "/blog" },
-      { name: "Featured Articles", href: "/blog-featureds" },
+      { name: "Featured Articles", href: "/blog/featured" },
     ],
   },
 ];
