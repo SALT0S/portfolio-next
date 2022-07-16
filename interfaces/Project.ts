@@ -6,6 +6,12 @@ export interface IProject {
   description: string;
   github_url: string;
   page_url: string;
+  stack: StackProject[];
+  image: ImageProject;
+}
+
+export interface StackProject {
+  title: string;
   image: ImageProject;
 }
 

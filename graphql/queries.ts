@@ -63,6 +63,18 @@ export const GET_PROJECT = gql`
           content
           github_url
           page_url
+          stack {
+            title
+            image {
+              data {
+                attributes {
+                  url
+                  width
+                  height
+                }
+              }
+            }
+          }
           image {
             data {
               attributes {

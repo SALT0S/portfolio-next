@@ -56,26 +56,53 @@ const ProjectPage: React.FC<PostsProps> = ({ project }) => {
         <div>
           <h1 className="text-6xl font-bold md:text-7xl">{project.title}</h1>
 
-          <div className="my-5 flex gap-6">
-            <div className="flex rounded-3xl bg-black py-1 px-2 dark:bg-white">
+          <div className="mt-10 flex gap-6">
+            <a
+              href={project.github_url}
+              aria-label={project.title}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex rounded-3xl bg-black py-1 px-2 hover:bg-gray-700 dark:bg-white hover:dark:bg-gray-200"
+            >
               <AiFillGithub
                 className="h-6 w-6 text-white dark:text-black"
                 aria-hidden="true"
               />
               <p className="ml-1 text-white dark:text-black">Github</p>
-            </div>
-            <div className="flex rounded-3xl bg-black py-1 px-2 dark:bg-white">
+            </a>
+            <a
+              href={project.page_url}
+              aria-label={project.title}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex rounded-3xl bg-black py-1 px-2 hover:bg-gray-700 dark:bg-white hover:dark:bg-gray-200"
+            >
               <MdOutlineScreenShare
                 className="h-6 w-6 text-white dark:text-black"
                 aria-hidden="true"
               />
               <p className="ml-1 text-white dark:text-black">View Page</p>
-            </div>
+            </a>
           </div>
 
           <h2 className="my-5 text-2xl font-semibold">About the project</h2>
 
-          <div>technologies</div>
+          <div className="my-4 flex gap-5">
+            {project.stack.map((stack) => (
+              <div className="relative h-12 w-12" key={stack.title}>
+                <Image
+                  src={stack.image.data.attributes.url}
+                  alt={stack.title}
+                  layout="responsive"
+                  width={48}
+                  height={48}
+                  sizes="(max-width: 48px) 100vw, 48px"
+                  loading="lazy"
+                  className="rounded-full"
+                />
+              </div>
+            ))}
+          </div>
 
           <article
             className="prose lg:prose-lg"

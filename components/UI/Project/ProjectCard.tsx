@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AiFillGithub } from "react-icons/ai";
-import { MdOutlineScreenShare } from "react-icons/md";
 import { ProjectsData } from "../../../interfaces";
 
 interface Props {
@@ -38,24 +36,6 @@ export const ProjectCard: React.FC<Props> = ({
                 </h3>
               </a>
             </Link>
-
-            <div className="absolute bottom-5 mx-5 flex gap-6">
-              <div className="flex cursor-pointer rounded-3xl bg-white py-1 px-2 hover:bg-zinc-200">
-                <AiFillGithub
-                  className="h-6 w-6 text-black"
-                  aria-hidden="true"
-                />
-                <p className="ml-1 dark:text-black">GitHub</p>
-              </div>
-
-              <div className="flex cursor-pointer rounded-3xl bg-white py-1 px-2 hover:bg-zinc-200">
-                <MdOutlineScreenShare
-                  className="h-6 w-6 text-black"
-                  aria-hidden="true"
-                />
-                <p className="ml-1 dark:text-black">Live Demo</p>
-              </div>
-            </div>
           </div>
         </div>
       ))}
