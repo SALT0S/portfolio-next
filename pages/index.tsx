@@ -1,13 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import { Layout } from "../components/Layout";
-import {
-  AboutSection,
-  BlogSection,
-  ContactSection,
-  HeaderSection,
-  SkillSection,
-} from "../components/UI";
 import {
   GET_ALL_FEATURED_POSTS,
   GET_ALL_FEATURED_PROJECTS,
@@ -22,6 +17,36 @@ import {
   SkillData,
 } from "../interfaces";
 import { gqlClient } from "../lib/graphql-client";
+const DynamicHeaderSection = dynamic(
+  () => import("../components/UI/HomeComponents/Header"),
+  {
+    suspense: true,
+  }
+);
+const DynamicSkillSection = dynamic(
+  () => import("../components/UI/HomeComponents/Skill"),
+  {
+    suspense: true,
+  }
+);
+const DynamicBlogSection = dynamic(
+  () => import("../components/UI/HomeComponents/Blog"),
+  {
+    suspense: true,
+  }
+);
+const DynamicAboutSection = dynamic(
+  () => import("../components/UI/HomeComponents/About"),
+  {
+    suspense: true,
+  }
+);
+const DynamicContactSection = dynamic(
+  () => import("../components/UI/HomeComponents/Contact"),
+  {
+    suspense: true,
+  }
+);
 
 interface Props {
   projects: IProject[];
@@ -29,17 +54,21 @@ interface Props {
   posts: IPost[];
 }
 
-const HomePage: NextPage<Props> = ({ posts, skills, projects }) => {
+const HomePage: NextPage<Props> = ({ posts, skills }) => {
   return (
-    <Layout>
+    <>
       <NextSeo title="Portfolio" />
-      <HeaderSection />
-      {/* <ProjectSection projects={projects} /> */}
-      <SkillSection skills={skills} />
-      <BlogSection posts={posts} />
-      <AboutSection />
-      <ContactSection />
-    </Layout>
+      <Suspense>
+        <Layout>
+          <DynamicHeaderSection />
+          {/*  <ProjectSection projects={projects} />  */}
+          <DynamicSkillSection skills={skills} />
+          <DynamicBlogSection posts={posts} />
+          <DynamicAboutSection />
+          <DynamicContactSection />
+        </Layout>
+      </Suspense>
+    </>
   );
 };
 

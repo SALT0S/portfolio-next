@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+import { HiArrowNarrowRight } from "react-icons/hi";
 import AboutImg from "../../../public/static/img/AboutImg.png";
-import { LinkButton } from "../Button";
 
-export const AboutSection = () => {
+const AboutSection = () => {
   return (
     <section>
       <div className="bg-dark bg-black text-center dark:bg-zinc-900">
@@ -29,7 +30,11 @@ export const AboutSection = () => {
               can check it out ;)
             </p>
             <div className="py-2 text-white">
-              <LinkButton url="/about-me" text="About me" />
+              <Link href={"/about-me"} prefetch={false} passHref>
+                <a className="inline-flex gap-1 font-bold transition-all hover:gap-2">
+                  About me <HiArrowNarrowRight className="self-center" />
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -47,3 +52,4 @@ export const AboutSection = () => {
     </section>
   );
 };
+export default AboutSection;

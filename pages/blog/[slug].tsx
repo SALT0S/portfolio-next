@@ -9,7 +9,6 @@ import { GET_ALL_POSTS, GET_POST } from "../../graphql/queries";
 import { IPost, IPosts } from "../../interfaces";
 import { toDate } from "../../lib/format-date";
 import { gqlClient } from "../../lib/graphql-client";
-
 const DynamicNewsletter = dynamic(
   () => import("../../components/UI/Blog/Newsletter"),
   {
@@ -109,14 +108,14 @@ const PostPage: React.FC<PostsProps> = ({ post }) => {
               type="submit"
               url={shareUrl}
               key={index}
-              className="SharePost__icon md:block "
+              className="SharePost__icon md:block"
             >
               <item.icon size={40} round={true} />
             </item.component>
           ))}
         </div>
       </div>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense>
         <DynamicNewsletter />
       </Suspense>
     </Layout>

@@ -3,13 +3,24 @@ import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { Layout } from "../../components/Layout/Layout";
-import { FeaturedPost, PostCard } from "../../components/UI/Blog";
 import {
   GET_ALL_FEATURED_POSTS,
   GET_ALL_UNFEATURED_POSTS,
 } from "../../graphql/queries";
 import { IPost, IPosts } from "../../interfaces";
 import { gqlClient } from "../../lib/graphql-client";
+const DynamicFeaturedPost = dynamic(
+  () => import("../../components/UI/Blog/FeaturedPost"),
+  {
+    suspense: true,
+  }
+);
+const DynamicPostCard = dynamic(
+  () => import("../../components/UI/Blog/PostCard"),
+  {
+    suspense: true,
+  }
+);
 const DynamicNewsletter = dynamic(
   () => import("../../components/UI/Blog/Newsletter"),
   {
@@ -23,7 +34,7 @@ interface Props {
 }
 const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
   return (
-    <Layout>
+    <>
       <NextSeo
         title="Blog"
         description="The purpose of this blog is to be my catharsis, to express what I feel through words and ideas that no one asked for, but it is a fun way to write and express feelings towards something or someone."
@@ -34,14 +45,18 @@ const BlogPage: NextPage<Props> = ({ postsUnFeatured, postsFeatured }) => {
             "The purpose of this blog is to be my catharsis, to express what I feel through words and ideas that no one asked for, but it is a fun way to write and express feelings towards something or someone.",
         }}
       />
-      <FeaturedPost posts={postsFeatured} />
-
-      <PostCard posts={postsUnFeatured} />
-
-      <Suspense fallback={``}>
-        <DynamicNewsletter />
+      <Suspense>
+        <Layout>
+          <DynamicFeaturedPost posts={postsFeatured} />
+          <DynamicPostCard
+            priority={false}
+            loading={"lazy"}
+            posts={postsUnFeatured}
+          />
+          <DynamicNewsletter />
+        </Layout>
       </Suspense>
-    </Layout>
+    </>
   );
 };
 

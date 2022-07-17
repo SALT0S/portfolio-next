@@ -1,12 +1,13 @@
+import Link from "next/link";
+import { HiArrowNarrowRight } from "react-icons/hi";
 import { ProjectsData } from "../../../interfaces";
-import { LinkButton } from "../Button";
 import { ProjectCard } from "../Project";
 
 interface Props {
   projects: ProjectsData[];
 }
 
-export const ProjectSection: React.FC<Props> = ({ projects }) => {
+const ProjectSection: React.FC<Props> = ({ projects }) => {
   return (
     <section className="container mx-auto my-10 max-w-[1540px] px-4 text-center sm:px-6 lg:px-8">
       <div className="md:mx-auto md:w-2/3">
@@ -18,8 +19,13 @@ export const ProjectSection: React.FC<Props> = ({ projects }) => {
       </div>
 
       <div className="mt-10">
-        <LinkButton url="/projects" text="View all projects" />
+        <Link href={"/projects"} prefetch={false} passHref>
+          <a className="inline-flex gap-1 font-bold transition-all hover:gap-2">
+            View all projects <HiArrowNarrowRight className="self-center" />
+          </a>
+        </Link>
       </div>
     </section>
   );
 };
+export default ProjectSection;

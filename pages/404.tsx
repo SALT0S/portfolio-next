@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
+import { HiArrowNarrowRight } from "react-icons/hi";
 import { Layout } from "../components/Layout";
-import { LinkButton } from "../components/UI";
 
 const Page404: NextPage = () => {
   return (
@@ -24,7 +25,12 @@ const Page404: NextPage = () => {
         <div className="md:ml-4">
           <p className="my-3 text-xl font-bold">Whoops! Sorry about that.</p>
           <p>
-            Back to the <LinkButton url="/" text="Home page" />
+            Back to the{" "}
+            <Link href={"/"} prefetch={false} passHref>
+              <a className="inline-flex gap-1 font-bold transition-all hover:gap-2">
+                Home page <HiArrowNarrowRight className="self-center" />
+              </a>
+            </Link>
           </p>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { SkillData } from "../../../interfaces";
 interface SkillsProps {
   skills: SkillData[];
 }
-export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
+const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
   return (
     <section>
       <svg
@@ -82,3 +82,4 @@ export const SkillSection: React.FC<SkillsProps> = ({ skills }) => {
     </section>
   );
 };
+export default SkillSection;

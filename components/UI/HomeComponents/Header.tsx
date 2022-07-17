@@ -1,6 +1,6 @@
 import { SvgComponent } from "../SvgComponent";
 
-export const HeaderSection = () => {
+const HeaderSection = () => {
   return (
     <section className="container mx-auto my-10 grid max-w-7xl gap-10 px-4  sm:px-6 md:grid-cols-2 lg:px-8">
       <div className="relative order-last md:-order-last md:h-screen">
@@ -19,3 +19,5 @@ export const HeaderSection = () => {
     </section>
   );
 };
+
+export default HeaderSection;

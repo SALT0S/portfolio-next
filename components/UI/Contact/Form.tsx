@@ -13,7 +13,7 @@ interface IValues {
 
 interface IErrors extends Partial<IValues> {}
 
-export const Form = () => {
+const Form = () => {
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -125,3 +125,5 @@ export const Form = () => {
     </form>
   );
 };
+
+export default Form;

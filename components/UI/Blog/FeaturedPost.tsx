@@ -1,17 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
+import { HiArrowNarrowRight } from "react-icons/hi";
 import { Autoplay, Lazy } from "swiper";
 import "swiper/css";
 import "swiper/css/lazy";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IPost } from "../../../interfaces";
 import { toDate } from "../../../lib/format-date";
-import { LinkButton } from "../Button";
 
 interface PostsProps {
   posts: IPost[];
 }
 
-export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
+const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
   return (
     <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
       <Swiper
@@ -53,7 +54,12 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
                     : `${post.description.substring(0, 145)}...`}
                 </p>
 
-                <LinkButton url={`/blog/${post.slug}`} text="Read More" />
+                <Link href={`/blog/${post.slug}`} prefetch={false} passHref>
+                  <a className="inline-flex gap-1 font-bold transition-all hover:gap-2">
+                    Read more
+                    <HiArrowNarrowRight className="self-center" />
+                  </a>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -62,3 +68,4 @@ export const FeaturedPost: React.FC<PostsProps> = ({ posts }) => {
     </section>
   );
 };
+export default FeaturedPost;
