@@ -11,12 +11,9 @@ interface PostsProps {
 
 const PostCard: React.FC<PostsProps> = ({ posts, priority, loading }) => {
   return (
-    <section className="container mx-auto my-10 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="container mx-auto my-10 grid max-w-7xl gap-10 px-4 sm:grid-cols-2 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
       {posts.map((post) => (
-        <div
-          key={post.slug}
-          className="grid gap-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
-        >
+        <div key={post.slug}>
           <Link href={`/blog/${post.slug}`} prefetch={false} passHref>
             <a>
               <div className="relative h-80 w-full">
